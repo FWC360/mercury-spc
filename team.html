@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Leadership Tapestry | Mercury SPC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-v2.css">
+    <style>
+        body { background: var(--dark); margin: 0; }
+
+        /* ── Back ── */
+        .team-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.45);
+            font-size: 0.85rem;
+            font-family: var(--font-display);
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .team-back:hover { color: var(--teal-light); }
+        .team-back svg { width: 16px; height: 16px; }
+
+        /* ── Hero ── */
+        .team-hero {
+            background: var(--dark);
+            padding: 9rem 0 5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .team-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.1;
+            margin: 1.5rem 0 1rem;
+        }
+        .team-hero p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        /* ── Main team section ── */
+        .team-section {
+            background: var(--dark);
+            padding: 5rem 0 6rem;
+        }
+        .team-section .tapestry-tree { padding-top: 0; }
+
+        /* ── Tier label ── */
+        .tt-tier-label {
+            font-family: var(--font-display);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--teal-light);
+            margin-bottom: 1.5rem;
+            margin-top: 0;
+            text-align: center;
+        }
+        .tt-tier--2 .tt-tier-label,
+        .tt-tier--3 .tt-tier-label {
+            margin-top: 3rem;
+        }
+
+        /* ── Role stack ── */
+        .tt-role-primary {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--teal-light);
+            margin-bottom: 0.2rem;
+        }
+        .tt-role-secondary {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">Mercury<span class="logo-spc">SPC</span></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html#philosophy">Cornerstone</a>
+                <a href="index.html#what-we-do">What We Do</a>
+                <a href="index.html#traditional-stewardship">Traditional Stewardship</a>
+                <a href="perception-crisis.html">Crisis Management</a>
+                <a href="team.html">Team</a>
+                <a href="index.html#contact" class="nav-cta">Partner With Us</a>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <header class="team-hero">
+        <div class="container">
+            <a href="index.html" class="team-back">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg>
+                Go Back
+            </a>
+            <h1>The Leadership Tapestry</h1>
+            <p>Mercury SPC is built around the framework of a special unit — a core team and best-in-class specialists and subject matter experts that interweave the core threads to weave the tapestry.</p>
+        </div>
+    </header>
+
+    <!-- ── TEAM SECTION ── -->
+    <section class="team-section">
+        <div class="container">
+            <div class="tapestry-tree">
+
+                <!-- ── TIER 1: LEADERSHIP ── -->
+                <div class="tt-tier tt-tier--1">
+                    <p class="tt-tier-label">Leadership</p>
+                    <div class="tt-row">
+                        <div class="tt-card">
+                            <div class="tt-photo">
+                                <img src="tc.jpg" alt="TC de Sousa">
+                            </div>
+                            <h3 class="tt-name">TC de Sousa</h3>
+                            <p class="tt-role">Team Principal</p>
+                            <p class="tt-edu">Bachelors &amp; PG<br>Denison Univ Granville, OH-USA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- connector 1 → 2 -->
+                <div class="tt-connector" style="display:none">
+                    <div class="tt-c-vert"></div>
+                    <div class="tt-c-horiz" style="width:50%"></div>
+                    <div class="tt-c-drops" style="width:50%">
+                        <span></span><span></span>
+                    </div>
+                </div>
+
+                <!-- ── TIER 2: CORE TEAM ── -->
+                <div class="tt-tier tt-tier--2">
+                    <p class="tt-tier-label">Core Team</p>
+                    <div class="tt-row">
+                        <div class="tt-card">
+                            <div class="tt-photo">
+                                <img src="Ryan Michigan.jpg" alt="Dr Ryan Michigan">
+                            </div>
+                            <h3 class="tt-name">Dr Ryan Michigan</h3>
+                            <p class="tt-role">Risk Analysis</p>
+                            <p class="tt-edu">PhD-Columbia Univ-USA<br>MBA-IIM-Ahmedabad-IN</p>
+                        </div>
+                        <div class="tt-card">
+                            <div class="tt-photo">
+                                <img src="Ryan Netto.png" alt="Ryan Netto">
+                            </div>
+                            <h3 class="tt-name">Ryan Netto</h3>
+                            <p class="tt-role">Operations</p>
+                            <p class="tt-edu">MSc Sustainable Entrepreneurship<br>RijksUniv Groningen-NL</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- connector 2 → 4 -->
+                <div class="tt-connector" style="display:none">
+                    <div class="tt-c-vert"></div>
+                    <div class="tt-c-horiz" style="width:75%"></div>
+                    <div class="tt-c-drops tt-c-drops--4" style="width:75%">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+
+                <!-- ── TIER 3: STAKEHOLDER ADVISORS ── -->
+                <div class="tt-tier tt-tier--3">
+                    <p class="tt-tier-label">Stakeholder Advisors</p>
+                    <div class="tt-row tt-row--wide">
+
+                        <div class="tt-card tt-card--sm">
+                            <div class="tt-photo">
+                                <img src="Neeraj pic-modified.png" alt="Neeraj Mehra">
+                            </div>
+                            <h3 class="tt-name">Neeraj Mehra</h3>
+                            <p class="tt-role-primary">Business Intelligence</p>
+                            <p class="tt-role-secondary">Stakeholder Advisors</p>
+                        </div>
+
+                        <div class="tt-card tt-card--sm">
+                            <div class="tt-photo">
+                                <img src="Karishma.png" alt="Karishma Chandy">
+                            </div>
+                            <h3 class="tt-name">Karishma Chandy</h3>
+                            <p class="tt-role-primary">Social &amp; Startup Impact</p>
+                            <p class="tt-role-secondary">Stakeholder Advisors</p>
+                        </div>
+
+                        <div class="tt-card tt-card--sm">
+                            <div class="tt-photo">
+                                <img src="ashish.png" alt="Ashish Khetan">
+                            </div>
+                            <h3 class="tt-name">Ashish Khetan</h3>
+                            <p class="tt-role-primary">Financial Advisory</p>
+                            <p class="tt-role-secondary">Stakeholder Advisors</p>
+                        </div>
+
+                        <div class="tt-card tt-card--sm">
+                            <div class="tt-photo">
+                                <img src="Tanya.png" alt="Tanya Singh">
+                            </div>
+                            <h3 class="tt-name">Tanya Singh</h3>
+                            <p class="tt-role-primary">Business Development &amp; Corporate Comm.</p>
+                            <p class="tt-role-secondary">Stakeholder Advisors</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-wordmark">Mercury<span>SPC</span></div>
+                    <p>Mercury Strategy &amp; Planning Council</p>
+                    <div class="footer-initiative">
+                        <img src="FWC_LOGO2020.png" alt="FWC Initiative Logo" class="fwc-logo">
+                        <div class="footer-initiative-copy">
+                            <span class="footer-tagline">An FWC Initiative</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:netto@fwc360.com">netto@fwc360.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Phone</span>
+                        <span>+31 687 392 568</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Hours</span>
+                        <span>Mon - Fri: 09:00 - 18:00 CET</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Locations</span>
+                        <span>Eindhoven (NL) | Mumbai (IN)</span>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html#philosophy">Cornerstone</a>
+                    <a href="index.html#what-we-do">What We Do</a>
+                    <a href="index.html#traditional-stewardship">Traditional Stewardship</a>
+                    <a href="team.html">Team</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mercury SPC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script-v2.js"></script>
+</body>
+</html>
