@@ -529,7 +529,7 @@
             font-weight: 700;
             line-height: 1.6;
             color: var(--dark);
-            background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.72));
+            background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.9));
         }
 
         /* ── The Debate ── */
@@ -895,15 +895,17 @@
             .pcm-def-number { font-size: clamp(4rem, 8vw, 6rem); }
             .pcm-compass-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
             .pcm-compass-graphic { order: -1; }
-            .pcm-loop-note-main { grid-template-columns: 1fr; text-align: center; padding: 1.35rem 1.25rem; }
+            .pcm-loop-note-main { flex-direction: column; align-items: center; text-align: center; padding: 1.35rem 1.25rem; gap: 0.5rem; }
             .pcm-loop-note-side,
-            .pcm-loop-note-side.right { text-align: center; }
+            .pcm-loop-note-side.right { text-align: center; white-space: normal; }
+            .pcm-loop-note-eq { font-size: 1.75rem; }
         }
         @media (max-width: 600px) {
             .pcm-types-grid { grid-template-columns: 1fr; }
             .pcm-steps { grid-template-columns: 1fr; }
             .pcm-hero-stances { gap: 0.75rem; }
             .crisis-compass-svg { max-width: 280px; }
+            .pcm-case-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1201,12 +1203,12 @@
 
             <!-- Paradox statement block -->
             <div class="pcm-loop-note">
+                <div class="pcm-loop-note-caption">' Strateguc thinking, perception and crisis management do not fit neatly into excel sheets.'</div>
                 <div class="pcm-loop-note-main">
                     <span class="pcm-loop-note-side">Subjective Qualitative Inputs</span>
                     <span class="pcm-loop-note-eq">=</span>
                     <span class="pcm-loop-note-side right">Objective Quantative Outputs</span>
                 </div>
-                <div class="pcm-loop-note-caption">' Strateguc thinking, perception and crisis management do not fit neatly into excel sheets.'</div>
             </div>
 
         </div>
