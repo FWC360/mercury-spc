@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What We Do | MercurySPC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-v2.css">
+    <style>
+        body { background: var(--light); margin: 0; }
+
+        /* ── Hero ── */
+        .wwd-hero {
+            position: relative;
+            padding: 9rem 0 6rem;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1C404E 0%, #274F60 30%, #367589 60%, #2A6070 85%, #1C404E 100%);
+        }
+        .wwd-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 60% at 80% 20%, rgba(212,168,67,0.10), transparent 65%),
+                radial-gradient(ellipse 60% 50% at 20% 80%, rgba(74,159,179,0.18), transparent 60%);
+            pointer-events: none;
+        }
+        /* Decorative orbital rings */
+        .wwd-hero-rings {
+            position: absolute;
+            top: 50%;
+            right: -120px;
+            transform: translateY(-50%);
+            width: 560px;
+            height: 560px;
+            opacity: 0.12;
+            pointer-events: none;
+        }
+        .wwd-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .wwd-hero-badge {
+            display: inline-block;
+            background: rgba(212,168,67,0.15);
+            border: 1px solid rgba(212,168,67,0.35);
+            color: #E8C96A;
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 0.32rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+        .wwd-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 5.5vw, 4rem);
+            font-weight: 700;
+            color: #E8ECF0;
+            line-height: 1.1;
+            margin: 0 0 1.25rem;
+            max-width: 780px;
+        }
+        .wwd-hero h1 span { color: #6AAFBF; }
+        .wwd-hero-desc {
+            max-width: 640px;
+            color: rgba(232,236,240,0.75);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .wwd-hero-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(232,236,240,0.5);
+            font-size: 0.85rem;
+            font-family: var(--font-display);
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            transition: color 0.2s;
+            margin-bottom: 2.5rem;
+        }
+        .wwd-hero-back:hover { color: #6AAFBF; }
+        .wwd-hero-back svg { width: 16px; height: 16px; }
+    </style>
+</head>
+<body>
+
+    <!-- Thermometer Progress Bar -->
+    <div class="thermometer-progress" id="thermometerProgress">
+        <div class="thermometer-track">
+            <div class="thermometer-fill" id="thermometerFill"></div>
+            <div class="thermometer-bulb"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">Mercury<span class="logo-spc">SPC</span></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="what-we-do.html">What We Do</a>
+                <a href="perception-crisis.html">Crisis Management</a>
+                <a href="traditional-stewardship.html">Green Integration</a>
+                <a href="index.html#philosophy">Core Principles</a>
+                <a href="team.html">Team</a>
+                <a href="mailto:netto@fwc360.com" class="nav-cta">Partner With Us</a>
+            </div>
+            <button class="nav-toggle" id="navToggle">MENU</button>
+        </div>
+    </nav>
+
+    <!-- ==============================
+         HERO
+    ============================== -->
+    <header class="wwd-hero">
+        <!-- Decorative rings -->
+        <svg class="wwd-hero-rings" viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="280" cy="280" rx="270" ry="160" stroke="white" stroke-width="1.5" stroke-dasharray="8 6"/>
+            <ellipse cx="280" cy="280" rx="200" ry="118" stroke="white" stroke-width="1" stroke-dasharray="5 5"/>
+            <circle cx="280" cy="280" r="60" stroke="white" stroke-width="1" stroke-dasharray="4 4"/>
+            <circle cx="280" cy="120" r="10" fill="white"/>
+            <circle cx="480" cy="310" r="6" fill="white" opacity="0.7"/>
+            <circle cx="100" cy="340" r="8" fill="white" opacity="0.6"/>
+        </svg>
+
+        <div class="container">
+            <div class="wwd-hero-content">
+                <a href="index.html" class="wwd-hero-back">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg>
+                    Back to Home
+                </a>
+                <div class="wwd-hero-badge">What We Do</div>
+                <h1>Your <span>Strategic</span> Partner</h1>
+                <p class="wwd-hero-desc">From Strategic Intent to Practical Alignment — Mercury SPC acts as the bridge between high-level vision and cohesive organisational execution, built for perpetual-productive existence.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==============================
+         WHAT WE DO
+    ============================== -->
+    <section class="section" id="what-we-do">
+        <div class="container">
+            <div class="section-header section-header-wide">
+                <div class="section-tag">What We Do</div>
+                <h2 class="section-title">Your Strategic Partner</h2>
+                <p class="section-desc what-we-do-desc">Mercury SPC acts as your strategic partner, bridging the gap between high-level vision and operational execution. Our objective is to move you from 'Strategic Intent' to 'Practical Alignment.' We evaluate whether your organisational brand vision, is truly built for long-term architecting/enduring longevity, rather than chasing finite/short-term goals. From a vision perspective and taking a longterm non HR-esque approach, we strategically align the C-Suite, the Mid-Line and the Front-Line so that the entire organisation operates as a cohesive, adaptable unit; that has the potential of productive-perpetual existence.
+</p>
+            </div>
+
+            <div class="objectives-section">
+                <h3 class="objectives-title">Objectives and Goals</h3>
+                <p class="objectives-intro">Transitioning organisations from Strategic Intent to Practical Alignment. Key goals include:</p>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-number">01</div>
+                        <h4>De-risking and Security</h4>
+                        <p>Integrating security into the financial and strategic heart of the organisation to protect its long-term viability.</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-number">02</div>
+                        <h4>Internal Cohesion</h4>
+                        <p>Building a rigid-yet-adaptable structure that can survive changing environments while identifying hidden costs that drain resources.</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-number">03</div>
+                        <h4>Vision Evaluation</h4>
+                        <p>Critically assessing whether a vision is truly long-term&hellip;</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-number">04</div>
+                        <h4>Sustainable Growth</h4>
+                        <p>Implementing practices that prioritise perpetual thinking. (long-term benefits over short-term or finite goals)</p>
+                    </div>
+                </div>
+                <div class="objectives-summary">
+                    <p>By focusing on these objectives, we ensure that an organisation's output is maximized through cohesive thinking and a vision that is both attainable and enduring.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         HOW WE EXECUTE (with planetary loop animation)
+    ============================== -->
+    <section class="section section-dark" id="execution">
+        <div class="container">
+            <div class="section-header light">
+                <div class="section-tag">How We Execute</div>
+                <h2 class="section-title">Continuous Circlular Loop Methodology</h2>
+                <p class="section-desc">We execute through a continuous circle-loop of feedback, adjustment, and strategic problem framing.</p>
+            </div>
+
+            <!-- Circle-loop planetary animation -->
+            <div class="circle-loop-sketch">
+                <div class="loop-container">
+                    <svg viewBox="0 0 760 360" fill="none" class="loop-svg">
+                        <ellipse cx="380" cy="190" rx="250" ry="145" stroke="var(--teal-light)" stroke-width="2" stroke-dasharray="8 5" class="spin-slow"/>
+                        <ellipse cx="380" cy="190" rx="205" ry="118" stroke="rgba(74,143,163,0.15)" stroke-width="1.5" stroke-dasharray="4 6" class="spin-reverse"/>
+
+                        <!-- Node: Feedback Loop -->
+                        <circle cx="195" cy="240" r="62" stroke="var(--teal)" stroke-width="2.2" fill="rgba(54,117,137,0.12)"/>
+                        <text x="195" y="232" font-family="Caveat" font-size="19" fill="var(--teal-light)" text-anchor="middle">Feedback</text>
+                        <text x="195" y="255" font-family="Caveat" font-size="19" fill="var(--teal-light)" text-anchor="middle">Loop</text>
+
+                        <!-- Node: Strategic Framing -->
+                        <circle cx="380" cy="88" r="62" stroke="var(--teal)" stroke-width="2.2" fill="rgba(54,117,137,0.12)"/>
+                        <text x="380" y="80" font-family="Caveat" font-size="19" fill="var(--teal-light)" text-anchor="middle">Strategic</text>
+                        <text x="380" y="103" font-family="Caveat" font-size="19" fill="var(--teal-light)" text-anchor="middle">Framing</text>
+
+                        <!-- Node: Adjustment Cycle -->
+                        <circle cx="565" cy="240" r="62" stroke="var(--teal)" stroke-width="2.2" fill="rgba(54,117,137,0.12)"/>
+                        <text x="565" y="232" font-family="Caveat" font-size="19" fill="var(--teal-light)" text-anchor="middle">Adjustment</text>
+                        <text x="565" y="255" font-family="Caveat" font-size="19" fill="var(--teal-light)" text-anchor="middle">Cycle</text>
+
+                        <!-- Connecting curves -->
+                        <path id="mercuryspc-loop-left" d="M145 214 Q100 160 318 130" stroke="rgba(255,255,255,0.25)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                        <path id="mercuryspc-loop-right" d="M442 130 Q660 160 615 214" stroke="rgba(255,255,255,0.25)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                        <path id="mercuryspc-loop-bottom" d="M195 302 Q380 345 565 302" stroke="rgba(255,255,255,0.25)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                        <text font-family="Space Grotesk" font-size="13" font-weight="700" fill="var(--teal-light)" letter-spacing="0.25px">
+                            <textPath href="#mercuryspc-loop-left" startOffset="50%" text-anchor="middle">MercurySPC</textPath>
+                        </text>
+                        <text font-family="Space Grotesk" font-size="13" font-weight="700" fill="var(--teal-light)" letter-spacing="0.25px">
+                            <textPath href="#mercuryspc-loop-right" startOffset="50%" text-anchor="middle">MercurySPC</textPath>
+                        </text>
+                        <text font-family="Space Grotesk" font-size="13" font-weight="700" fill="var(--teal-light)" letter-spacing="0.25px">
+                            <textPath href="#mercuryspc-loop-bottom" startOffset="50%" text-anchor="middle">MercurySPC</textPath>
+                        </text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="execution-grid">
+                <div class="execution-card">
+                    <div class="execution-number">01</div>
+                    <h3>Mapping (Cyber &amp; Traditional)</h3>
+                    <p>From our perspective, mapping is the strategic plotting of your positional strategies. Many organisations possess powerful internal IP's 'conclaves' &amp; frameworks; and unique inherent strengths that they fail to leverage. Mapping, identifies these latent assets, by translating under-utilized internal capabilities, into external strategic leverage.</p>
+                </div>
+                <div class="execution-card">
+                    <div class="execution-number">02</div>
+                    <h3>Strategy &amp; Design Thinking</h3>
+                    <p>This is the discipline of precision in the 'how' and the 'now'. We apply rigorous creative principles and strategic problem framing to address the root causes of challenges rather than just symptoms.</p>
+                </div>
+                <div class="execution-card">
+                    <div class="execution-number">03</div>
+                    <h3>Synergistic Strategic Alliances</h3>
+                    <p>We help identify, foster and handhold synergistic strategic alliances &amp; partnerships, where the whole is greater than the sum of its parts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         EXPANDING ON EXECUTION STRATEGIES
+    ============================== -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Expanding on Execution Strategies</div>
+                <h2 class="section-title">Strategic Solutions</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Vision Mismatch Correction</h3>
+                    <p>A vision mismatch occurs when an organisation's stated goals are no longer attainable or sustainable, within its current framework. This happens when a rigid structure fails to adapt, leading to a disconnect between leadership's intent and/or actual capabilities.</p>
+                    <div class="service-indicators">
+                        <h4>Key indicators of a mismatch include:</h4>
+                        <ul>
+                            <li>Internal and external discord that disrupts the 'circle-loop' of vision to execution.</li>
+                            <li>An impasse of leadership dynamics, where the 'C-Suite' and the 'Front Line' no longer speak the same language.</li>
+                            <li>The realisation that the current organisational alignment is creating hidden costs.</li>
+                        </ul>
+                    </div>
+                    <!-- Vision Mismatch Illustration -->
+                    <div style="text-align:center; padding: 3rem 0 1rem; position: relative;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 300px; height: 120px; background: radial-gradient(circle, rgba(230,230,230,0.5) 0%, rgba(255,255,255,0) 70%); z-index: 0; pointer-events: none;"></div>
+                        
+                        <svg viewBox="0 0 340 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:400px; position: relative; z-index: 1;">
+                            
+                            <!-- Left gear (Vision) -->
+                            <g transform="translate(100, 85)">
+                                <circle cx="0" cy="0" r="48" stroke="var(--teal)" stroke-width="2.5" fill="rgba(54,117,137,0.06)" stroke-dasharray="8 6"/>
+                                <circle cx="0" cy="0" r="32" stroke="var(--teal)" stroke-width="1.5" fill="rgba(255,255,255,0.8)" />
+                                <path d="M 0 -48 L 0 -56 M 34 -34 L 40 -40 M 48 0 L 56 0 M 34 34 L 40 40 M 0 48 L 0 56 M -34 34 L -40 40 M -48 0 L -56 0 M -34 -34 L -40 -40" stroke="var(--teal)" stroke-width="3" stroke-linecap="round"/>
+                                <text x="0" y="5" font-family="Caveat" font-size="18" fill="var(--teal)" text-anchor="middle" font-weight="600">Vision</text>
+                            </g>
+
+                            <!-- Right gear (Execution) -->
+                            <g transform="translate(240, 85)">
+                                <circle cx="0" cy="0" r="48" stroke="var(--gold)" stroke-width="2.5" fill="rgba(212,168,67,0.06)" stroke-dasharray="8 6"/>
+                                <circle cx="0" cy="0" r="32" stroke="var(--gold)" stroke-width="1.5" fill="rgba(255,255,255,0.8)" />
+                                <path d="M 0 -48 L 0 -56 M 34 -34 L 40 -40 M 48 0 L 56 0 M 34 34 L 40 40 M 0 48 L 0 56 M -34 34 L -40 40 M -48 0 L -56 0 M -34 -34 L -40 -40" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"/>
+                                <text x="0" y="5" font-family="Caveat" font-size="18" fill="var(--gold)" text-anchor="middle" font-weight="600">Execution</text>
+                            </g>
+
+                            <!-- Disconnect zigzag & energy between gears -->
+                            <g stroke="var(--red-glow)" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M 154 75 L 162 68 L 170 82 L 178 68 L 186 75" stroke-width="2.5" fill="none" opacity="0.85"/>
+                                <path d="M 154 95 L 162 88 L 170 102 L 178 88 L 186 95" stroke-width="2.5" fill="none" opacity="0.85"/>
+                                <path d="M 172 45 L 166 57 L 174 57 L 168 69" stroke-width="2" fill="none"/>
+                            </g>
+
+                            <text x="170" y="165" font-family="Caveat" font-size="16" fill="rgba(0,0,0,0.4)" text-anchor="middle" font-style="italic">the mismatch</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Demerger Dynamics</h3>
+                    <p>The goal of a demerger is to extract more value from the entities separately than they could provide as a single, misaligned unit.</p>
+                    <div class="service-list">
+                        <div class="service-list-item">
+                            <strong>Protect the legacy:</strong>
+                            <p>By separating misaligned divisions, the core organisation can focus on its primary sustainability practice.</p>
+                        </div>
+                        <div class="service-list-item">
+                            <strong>Address root causes:</strong>
+                            <p>A demerger allows for strategic problem framing to reset the trajectory of each individual part.</p>
+                        </div>
+                        <div class="service-list-item">
+                            <strong>Restore Agility:</strong>
+                            <p>Breaking down a rigid structure allows smaller entities to adopt adaptive thinking and thrive.</p>
+                        </div>
+                    </div>
+                    <div class="service-note">
+                        <p>Sometimes it is not always a negative, with internal divisions and demergers. The demerger of Rolls-Royce aviation and automotors led to the unlocking of value for both the entities. The same could be said for Tesla and SpaceX; as it did for Mitsubishi automotive, Mitsubishi heavy industries and Mitsubishi commercial-banks.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Synergistic Strategic Alliances: Merger</h3>
+                    <p>Improve long-term ROI by ensuring that the output of the partnership is greater than the sum of its individual parts. These alliances allow for vision evaluation to ensure that the path being followed is truly sustainable.</p>
+                </div>
+
+                <div class="service-card service-featured">
+                    <h3>Short-term Let-offs</h3>
+                    <p>Strategic sacrifices made in the present to secure the durability, security, and perpetual existence of an organisation.</p>
+                    <div class="letoffs-grid">
+                        <div class="letoff-item">
+                            <strong>Concurrent Internal Upskilling:</strong>
+                            <p>Investing in 'Adaptive Adoption'&mdash;upskilling teams to thrive in highly dynamic environments. A short-term resource 'let-off' sometimes ensures long-term organisational agility.</p>
+                        </div>
+                        <div class="letoff-item">
+                            <strong>Addressing Root Causes via Strategic Problem Framing:</strong>
+                            <p>Moving 'beyond symptoms' to address fundamental root causes. It takes more time than a quick fix, but leads to non-obvious solutions and long-term stability.</p>
+                        </div>
+                        <div class="letoff-item">
+                            <strong>Strategic Demergers:</strong>
+                            <p>When a vision mismatch is identified, an organisation may choose to demerge a particular division. This represents a short-term loss of scale or unified structure, but could extract more value from the entities separately and ensure they can survive in a changing environment.</p>
+                        </div>
+                        <div class="letoff-item">
+                            <strong>Investing in De-risking Architectures:</strong>
+                            <p>Allocating time and resources (personnel/capital) toward sustainability practices and circular frameworks, leading to an 'architecture of de-risking' that protects the organisation's legacy.</p>
+                        </div>
+                        <div class="letoff-item">
+                            <strong>Prioritising Synergistic Alliances: The (erstwhile) NATO approach</strong>
+                            <p>Entering into strategic alliances,(despite operational imperfections) where an organisation might sacrifice some degree of independent control, to ensure the 'total output is greater than it's individual parts.'</p>
+                        </div>
+                    </div>
+                    <!-- Short-term Let-offs — Case Study: The Kodak Story -->
+                    <div class="letoff-case-study">
+                        <div class="letoff-case-tag">Case Study</div>
+                        <h4 class="letoff-case-title">Kodak &mdash; The Cost of Tactical Short-Termism</h4>
+                        <div class="letoff-case-body">
+                            <p>Kodak was the pioneer in digital cameras and digital imaging technology. Had they taken a strategic view, they would have propelled and compounded the digital division, both in terms of size and scope.</p>
+                            <p>This tactical approach and an inability to stomach short-term let-offs/small reductions in the subsequent quarterly results - along with turf protection by the traditional film division - led to the diminishment and descaling of the digital division.</p>
+                            <p><strong>Result:</strong> The digital technologists and scientists at Kodak left the organisation and went on to work for adaptive rivals or new startups in digital imagery that led to the subsequent demise of Kodak's fortunes.</p>
+                        </div>
+                        <div class="letoff-case-lessons">
+                            <span class="letoff-case-lessons-label">Lessons</span>
+                            <p>Protect strategic innovation budgets; avoid cancelling emerging business units for short-term earnings; retain and empower technical talent to convert invention into enduring business models.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         HIDDEN COST FRAMEWORK
+    ============================== -->
+    <section class="section section-gray" id="hidden-costs">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Uncovering Value</div>
+                <h2 class="section-title">Hidden Cost Identification &amp; Financial De-Risking<br>Methodologies</h2>
+                <p class="section-desc">This process uncovers team and workflow bottlenecks, that have a downstream effect on time costs and capital duplication/overruns.</p>
+            </div>
+            <div class="hidden-costs-grid">
+                <div class="cost-card">
+                    <h4>Evaluating Structural Rigidity</h4>
+                    <p>Identifies costs associated with rigid structures that are unable to sustain themselves or adapt to a changing environment.</p>
+                </div>
+                <div class="cost-card">
+                    <h4>Identifying Vision Mismatch</h4>
+                    <p>It reveals 'hidden costs' that arise from a vision mismatch, where the organisation's stated goals and its actual capabilities are misaligned.</p>
+                </div>
+                <div class="cost-card">
+                    <h4>Analyzing Synergy and Output</h4>
+                    <p>Hidden costs are often found where an organisation is operating in isolation or failing to leverage its strengths to its full potential.</p>
+                </div>
+                <div class="cost-card">
+                    <h4>Focusing on Attainability</h4>
+                    <p>Ensuring a vision that is attainable and sustainable, helps organisations avoid the long-term financial 'downsides' of pursuing unfeasible goals and initiatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-cursor-nav">
+        <div class="container">
+            <div class="page-cursor-grid">
+                <a href="index.html" class="page-cursor-link page-cursor-link--prev">
+                    <span class="page-cursor-meta">&larr; Back to</span>
+                    <span class="page-cursor-title">Home</span>
+                </a>
+                <a href="perception-crisis.html" class="page-cursor-link page-cursor-link--next">
+                    <span class="page-cursor-meta">Next &rarr;</span>
+                    <span class="page-cursor-title">Crisis Management</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-wordmark">Mercury<span>SPC</span></div>
+                    <p>Mercury Strategy &amp; Planning Council</p>
+                    <div class="footer-initiative">
+                        <img src="FWC_LOGO2020.png" alt="FWC Initiative Logo" class="fwc-logo">
+                        <div class="footer-initiative-copy">
+                            <span class="footer-tagline">An FWC Initiative</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:netto@fwc360.com">netto@fwc360.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Phone</span>
+                        <span>+31 687 392 568</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Hours</span>
+                        <span>Mon - Fri: 09:00 - 18:00 CET</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Locations</span>
+                        <span>Eindhoven (NL) | Mumbai (IN)</span>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html#philosophy">Cornerstone</a>
+                    <a href="what-we-do.html">What We Do</a>
+                    <a href="traditional-stewardship.html">Traditional Stewardship</a>
+                    <a href="team.html">Team</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mercury SPC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script-v2.js"></script>
+</body>
+</html>

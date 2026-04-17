@@ -290,18 +290,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 margin-top: 0.5rem;
                 text-align: center;
             }
-
-            .nav-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-
-            .nav-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .nav-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -5px);
-            }
         }
     `;
     document.head.appendChild(style);

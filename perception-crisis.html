@@ -496,9 +496,10 @@
             background: linear-gradient(135deg, rgba(44,44,48,0.98), rgba(44,44,48,0.94));
             padding: 1.45rem 2.5rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             gap: 1.5rem;
+            text-align: center;
         }
         .pcm-loop-note-side {
             font-family: var(--font-display);
@@ -512,6 +513,35 @@
         }
         .pcm-loop-note-side.right {
             text-align: right;
+        }
+        .pcm-loop-note-message {
+            font-family: var(--font-display);
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.65;
+            color: rgba(255,255,255,0.84);
+            margin: 0;
+        }
+        .pcm-loop-note-message .primary-line {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: #f3efe7;
+        }
+        .pcm-loop-note-message .lowercase-line {
+            text-transform: none;
+            letter-spacing: 0.02em;
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.82);
+        }
+        .pcm-loop-note-message .underlined {
+            text-decoration: underline;
+            text-underline-offset: 0.18em;
+            text-decoration-thickness: 1.5px;
+            color: #ffffff;
         }
         .pcm-loop-note-eq {
             font-family: var(--font-display);
@@ -805,6 +835,13 @@
             line-height: 1.25;
             margin-bottom: 1rem;
         }
+        .pcm-case-source {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--teal);
+            margin: -0.45rem 0 0.85rem;
+        }
         .pcm-case-intro {
             color: var(--muted);
             font-size: 0.95rem;
@@ -918,16 +955,14 @@
                 <span class="logo-text">Mercury<span class="logo-spc">SPC</span></span>
             </a>
             <div class="nav-links" id="navLinks">
-                <a href="index.html#philosophy">Cornerstone</a>
-                <a href="index.html#what-we-do">What We Do</a>
-                <a href="index.html#traditional-stewardship">Traditional Stewardship</a>
+                <a href="what-we-do.html">What We Do</a>
                 <a href="perception-crisis.html">Crisis Management</a>
+                <a href="traditional-stewardship.html">Green Integration</a>
+                <a href="index.html#philosophy">Core Principles</a>
                 <a href="team.html">Team</a>
                 <a href="mailto:netto@fwc360.com" class="nav-cta">Partner With Us</a>
             </div>
-            <button class="nav-toggle" id="navToggle">
-                <span></span><span></span><span></span>
-            </button>
+            <button class="nav-toggle" id="navToggle">MENU</button>
         </div>
     </nav>
 
@@ -1205,9 +1240,11 @@
             <div class="pcm-loop-note">
                 <div class="pcm-loop-note-caption">'Strategic thinking, perception and crisis management do not fit neatly into excel sheets.'</div>
                 <div class="pcm-loop-note-main">
-                    <span class="pcm-loop-note-side">Subjective Qualitative Inputs</span>
-                    <span class="pcm-loop-note-eq">=</span>
-                    <span class="pcm-loop-note-side right">Objective Quantative Outputs</span>
+                    <p class="pcm-loop-note-message">
+                        <span class="primary-line">Subjective qualitative inputs</span>
+                        <span class="lowercase-line">leading to objective quantative output</span>
+                        <span class="lowercase-line">for a <span class="underlined">result driven</span> approach</span>
+                    </p>
                 </div>
             </div>
 
@@ -1309,7 +1346,8 @@
         <div class="container">
             <div class="pcm-case-header">
                 <p class="pcm-section-label">Case Studies</p>
-                <h2>Board-Level Crisis Management — Chegg (AGB framework)</h2>
+                <h2>Board-Level Crisis Management — AGB.Org</h2>
+                <p class="pcm-case-source">(Chegg)</p>
                 <p class="pcm-case-intro">A practical four‑phase framework the board can apply to complex, long‑running crises. The phases guide governance attention across mitigation, preparedness, response and recovery.</p>
             </div>
 
@@ -1367,6 +1405,21 @@
             <p class="pcm-section-label">Contact</p>
             <p style="color:var(--muted); font-size:0.95rem; line-height:1.8; margin-bottom:2rem;">For a more in-depth conversation with regards to a specific crisis or situation, please reach out to our resource desk.</p>
             <a href="mailto:resource@mercuryspc.com" class="ts-gr-cta-btn" style="display:inline-block; font-size:0.92rem;">Start a Conversation &rarr;</a>
+        </div>
+    </section>
+
+    <section class="page-cursor-nav">
+        <div class="container">
+            <div class="page-cursor-grid">
+                <a href="what-we-do.html" class="page-cursor-link page-cursor-link--prev">
+                    <span class="page-cursor-meta">&larr; Back to</span>
+                    <span class="page-cursor-title">What We Do</span>
+                </a>
+                <a href="traditional-stewardship.html" class="page-cursor-link page-cursor-link--next">
+                    <span class="page-cursor-meta">Next &rarr;</span>
+                    <span class="page-cursor-title">Green Integration</span>
+                </a>
+            </div>
         </div>
     </section>
 

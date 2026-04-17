@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traditional Stewardship | MercurySPC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-v2.css">
+    <style>
+        body { background: var(--light); margin: 0; }
+
+        /* ── Hero ── */
+        .ts-hero {
+            position: relative;
+            padding: 9rem 0 6rem;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1A3028 0%, #224030 30%, #2E5A40 60%, #3A7050 85%, #2A4A38 100%);
+        }
+        .ts-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 65% 55% at 75% 15%, rgba(212,168,67,0.13), transparent 65%),
+                radial-gradient(ellipse 55% 50% at 15% 85%, rgba(74,140,90,0.20), transparent 60%);
+            pointer-events: none;
+        }
+        /* Decorative leaf/growth rings */
+        .ts-hero-deco {
+            position: absolute;
+            top: 50%;
+            right: -100px;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+            opacity: 0.10;
+            pointer-events: none;
+        }
+        .ts-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .ts-hero-badge {
+            display: inline-block;
+            background: rgba(212,168,67,0.15);
+            border: 1px solid rgba(212,168,67,0.35);
+            color: #E8C96A;
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 0.32rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+        .ts-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 5.5vw, 4rem);
+            font-weight: 700;
+            color: #E8ECF0;
+            line-height: 1.1;
+            margin: 0 0 1.25rem;
+            max-width: 820px;
+        }
+        .ts-hero h1 span { color: #7ACFA0; }
+        .ts-hero-desc {
+            max-width: 660px;
+            color: rgba(232,236,240,0.75);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .ts-hero-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(232,236,240,0.5);
+            font-size: 0.85rem;
+            font-family: var(--font-display);
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            transition: color 0.2s;
+            margin-bottom: 2.5rem;
+        }
+        .ts-hero-back:hover { color: #7ACFA0; }
+        .ts-hero-back svg { width: 16px; height: 16px; }
+
+        /* Pill tags in hero */
+        .ts-hero-pills {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+        .ts-hero-pill {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.38rem 1rem;
+            border-radius: 100px;
+            border: 1px solid rgba(255,255,255,0.18);
+            color: rgba(232,236,240,0.8);
+            background: rgba(255,255,255,0.06);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thermometer Progress Bar -->
+    <div class="thermometer-progress" id="thermometerProgress">
+        <div class="thermometer-track">
+            <div class="thermometer-fill" id="thermometerFill"></div>
+            <div class="thermometer-bulb"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">Mercury<span class="logo-spc">SPC</span></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="what-we-do.html">What We Do</a>
+                <a href="perception-crisis.html">Crisis Management</a>
+                <a href="traditional-stewardship.html">Green Integration</a>
+                <a href="index.html#philosophy">Core Principles</a>
+                <a href="team.html">Team</a>
+                <a href="mailto:netto@fwc360.com" class="nav-cta">Partner With Us</a>
+            </div>
+            <button class="nav-toggle" id="navToggle">MENU</button>
+        </div>
+    </nav>
+
+    <!-- ==============================
+         HERO
+    ============================== -->
+    <header class="ts-hero">
+        <!-- Decorative organic rings -->
+        <svg class="ts-hero-deco" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="250" cy="250" r="240" stroke="white" stroke-width="1.5" stroke-dasharray="10 8"/>
+            <circle cx="250" cy="250" r="180" stroke="white" stroke-width="1" stroke-dasharray="6 6"/>
+            <circle cx="250" cy="250" r="110" stroke="white" stroke-width="1" stroke-dasharray="4 5"/>
+            <circle cx="250" cy="250" r="50" stroke="white" stroke-width="1.5"/>
+            <!-- Leaf-like accents -->
+            <path d="M250 10 Q280 100 250 250 Q220 100 250 10" stroke="white" stroke-width="1" fill="none" opacity="0.6"/>
+            <path d="M490 250 Q400 280 250 250 Q400 220 490 250" stroke="white" stroke-width="1" fill="none" opacity="0.6"/>
+            <circle cx="250" cy="10" r="5" fill="white" opacity="0.7"/>
+            <circle cx="490" cy="250" r="4" fill="white" opacity="0.6"/>
+            <circle cx="250" cy="490" r="6" fill="white" opacity="0.5"/>
+        </svg>
+
+        <div class="container">
+            <div class="ts-hero-content">
+                <a href="index.html" class="ts-hero-back">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg>
+                    Back to Home
+                </a>
+                <div class="ts-hero-badge">Green Integration</div>
+                <h1>Green <span>Integration</span></h1>
+                <p class="ts-hero-desc">MercurySPC's environmental stewardship practice — where traditional sustainability meets strategic intent, and compliance-led thinking becomes meaningful, regenerative action.</p>
+                <div class="ts-hero-pills">
+                    <span class="ts-hero-pill">ESG Frameworks</span>
+                    <span class="ts-hero-pill">Green Investment</span>
+                    <span class="ts-hero-pill">Net-Zero</span>
+                    <span class="ts-hero-pill">Neutral Ground</span>
+                    <span class="ts-hero-pill">Green Rinsing</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==============================
+         TRADITIONAL STEWARDSHIP — INTRO
+    ============================== -->
+    <section class="section ts-intro-section" id="traditional-stewardship">
+        <div class="container">
+            <div class="section-header ts-intro-header">
+                <div class="section-tag">Traditional Stewardship - Sustainability beyond ESG</div>
+                <p class="ts-classical-intro">This is the classical/traditional part of MercurySPC's practice, where Sustainability is traditionally looked upon in terms of environmental practices and the increasing awareness and expectations of new age consumers, with regards to governance and environmental integration practices.</p>
+                <p class="section-desc">This section represents the traditional sustainability landscape — the practices, the data, and the forces that drove the field, before the need for 'something beyond' emerged. <br> This is the baseline. This is where the conversation begins.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         TRADITIONAL STEWARDSHIP — THE NUMBERS
+    ============================== -->
+    <section class="section ts-numbers-section" id="ts-numbers">
+        <div class="container">
+            <div class="ts-numbers-header">
+                <div class="ts-numbers-label">The Numbers</div>
+                <p class="ts-numbers-sub">The data behind the demand — why sustainability is no longer optional.</p>
+            </div>
+            <div class="ts-stats-grid">
+                <div class="ts-stat">
+                    <div class="ts-stat-number">3.8<span class="ts-stat-unit">TW</span></div>
+                    <div class="ts-stat-desc">Global renewable energy capacity </div>
+                </div>
+                <div class="ts-stat">
+                    <div class="ts-stat-number">82<span class="ts-stat-unit">%</span></div>
+                    <div class="ts-stat-desc">Share of consumers willing to pay more for sustainable packaging</div>
+                </div>
+                <div class="ts-stat">
+                    <div class="ts-stat-number">CO<span class="ts-stat-unit ts-stat-unit--sub">2</span></div>
+                    <div class="ts-stat-desc">Net-zero carbon dioxide emissions globally by 2050</div>
+                </div>
+                <div class="ts-stat">
+                    <div class="ts-stat-number">3<span class="ts-stat-unit">x</span></div>
+                    <div class="ts-stat-desc">The ROI of successful executions of sustainable systems in public &amp; private scenarios</div>
+                </div>
+                <div class="ts-stat">
+                    <div class="ts-stat-number">&euro;25<span class="ts-stat-unit">Tn</span></div>
+                    <div class="ts-stat-desc">Global sustainable investment assets, representing an increase of 34% in 2 years</div>
+                </div>
+                <div class="ts-stat">
+                    <div class="ts-stat-number">63<span class="ts-stat-unit">%</span></div>
+                    <div class="ts-stat-desc">Of sustainable funds performed in the top half of their respective categories (pre-covid)</div>
+                </div>
+                <div class="ts-stat">
+                    <div class="ts-stat-number">&euro;200<span class="ts-stat-unit">Bn</span></div>
+                    <div class="ts-stat-desc">Poured into sustainable investment options by European investors.</div>
+                </div>
+                <div class="ts-stat">
+                    <div class="ts-stat-number">49<span class="ts-stat-unit">%</span></div>
+                    <div class="ts-stat-desc">Proportion of sustainable investing in Europe relative to total managed assets</div>
+                </div>
+                <div class="ts-stat">
+                    <div class="ts-stat-number">17<span class="ts-stat-unit">%</span></div>
+                    <div class="ts-stat-desc">Annual growth of integration of Sustainability factors into financial analysis</div>
+                </div>
+                <div class="ts-stat">
+                    <div class="ts-stat-number">19<span class="ts-stat-unit">%</span></div>
+                    <div class="ts-stat-desc">Companies with higher-than-average human sustainability metrics have 19% higher innovation revenues</div>
+                </div>
+                <div class="ts-stat">
+                    <div class="ts-stat-number">173<span class="ts-stat-unit">%</span></div>
+                    <div class="ts-stat-desc">Forecast growth of the UK socially responsible investing market by 2027</div>
+                </div>
+                <div class="ts-stat">
+                    <div class="ts-stat-number">49<span class="ts-stat-unit">%</span></div>
+                    <div class="ts-stat-desc">Of millennial millionaires make their investments based on social factors</div>
+                </div>
+                <div class="ts-stat ts-stat--span">
+                    <div class="ts-stat-number">67<span class="ts-stat-unit">%</span></div>
+                    <div class="ts-stat-desc">Of millennial customers expect the brands they buy or the companies they work for to be purpose-driven &mdash; and their jobs to have societal impact</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         TRADITIONAL STEWARDSHIP — COMPLIANCE THINKING
+    ============================== -->
+    <section class="section ts-compliance-section">
+        <div class="container">
+            <div class="ts-compliance-header">
+                <span class="ts-compliance-label">Compliance&#8209;led tactical thinking</span>
+                <svg class="ts-compliance-arrow" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2 Q12 28 12 32" stroke="var(--red-glow)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 3"/>
+                    <path d="M6 27 L12 34 L18 27" stroke="var(--red-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+            </div>
+            <div class="ts-facets-row">
+                <div class="ts-facet-pill">ESG Frameworks</div>
+                <div class="ts-facet-pill">CSR Reporting</div>
+                <div class="ts-facet-pill">Green Investment</div>
+                <div class="ts-facet-pill">Sustainable Packaging</div>
+                <div class="ts-facet-pill">Renewable Energy</div>
+                <div class="ts-facet-pill">Net-Zero Commitments</div>
+            </div>
+            <p class="ts-compliance-note">However, when executed proactively and meaningfully, these are both fiscal and perceptional net positives for organisations. The key is to ensure that compliance&#8209;led thinking stays on the right side of consumer and citizen&#8209;led perception and awareness.</p>
+        </div>
+    </section>
+
+    <!-- ==============================
+         THE DOCTRINE
+    ============================== -->
+    <section class="ts-doctrine-section" id="the-doctrine">
+        <div class="container">
+            <div class="ts-doctrine-header">
+                <h2 class="ts-doctrine-title">The <span>Doctrine</span></h2>
+                <p class="ts-doctrine-tagline">&ldquo;Sustainability in design and sustainable development is not a scientific issue &mdash; it is a human issue with a huge economic overtone.&rdquo;</p>
+            </div>
+
+            <!-- Impact grid -->
+            <div class="ts-doctrine-impact-label">Why Sustainable Thinking Transformance?</div>
+            <div class="ts-doctrine-impact-grid">
+                <div class="ts-doctrine-card"><h4>Profitability</h4><p>Better operational performance in 88% of companies. Good for pocket and planet.</p></div>
+                <div class="ts-doctrine-card"><h4>Regulatory Compliance</h4><p>Greater strategic freedom through deregulation; earn subsidies and government support.</p></div>
+                <div class="ts-doctrine-card"><h4>Company USP</h4><p>Being an early adopter creates a first mover advantage.</p></div>
+                <div class="ts-doctrine-card"><h4>Branding &amp; Recognition</h4><p>Enhanced branding and perception due to wide ranging impact.</p></div>
+                <div class="ts-doctrine-card"><h4>Top Line Growth</h4><p>Tap new markets, attract new B2B and B2C customers, and access better resources.</p></div>
+                <div class="ts-doctrine-card"><h4>Employee Productivity</h4><p>Boost motivation and attract talent with enhanced social credibility.</p></div>
+                <div class="ts-doctrine-card"><h4>Lower Cost</h4><p>Lower energy consumption, reduced resource intake, easier access to finance.</p></div>
+                <div class="ts-doctrine-card"><h4>Conscious Capital</h4><p>Lowered cost of capital for sustainability-compliant companies.</p></div>
+                <div class="ts-doctrine-card"><h4>Shareholder Returns</h4><p>Better stock performance in 80% of companies with strong sustainability metrics.</p></div>
+                <div class="ts-doctrine-card"><h4>Early Adopters</h4><p>Target millennials &mdash; 67% of millennial millionaires invest based on social factors.</p></div>
+            </div>
+
+            <!-- Six Pillars -->
+            <div class="ts-doctrine-pillars-header">
+                <div class="ts-doctrine-impact-label">The Six Pillars</div>
+                <p class="ts-doctrine-pillars-sub">Foundational principles that transform sustainability from obligation to economic opportunity.</p>
+            </div>
+            <div class="ts-doctrine-pillars">
+                <div class="ts-doctrine-pillar"><span class="ts-doctrine-pillar-num">01</span><h4>Community Involvement</h4><p>Sustainability starts with community engagement and evolves into community economics.</p></div>
+                <div class="ts-doctrine-pillar"><span class="ts-doctrine-pillar-num">02</span><h4>Economic Stimulus</h4><p>Shift focus towards sustainable infrastructure as the primary economic growth driver.</p></div>
+                <div class="ts-doctrine-pillar"><span class="ts-doctrine-pillar-num">03</span><h4>Intelligent Infrastructure</h4><p>Sustainable development built on systems designed with long-term strategic thinking.</p></div>
+                <div class="ts-doctrine-pillar"><span class="ts-doctrine-pillar-num">04</span><h4>Affordable Housing &amp; Public Transport</h4><p>Stimulating the economy while promoting sustainable community living at scale.</p></div>
+                <div class="ts-doctrine-pillar"><span class="ts-doctrine-pillar-num">05</span><h4>Carbon Sequestration</h4><p>Regenerative agriculture and urban-rural systems that sequester carbon and create new productive land-use economies.</p></div>
+                <div class="ts-doctrine-pillar"><span class="ts-doctrine-pillar-num">06</span><h4>Holistic Benefits</h4><p>Sustainable development makes organisations and communities wealthier, healthier, and wiser.</p></div>
+            </div>
+
+            <div class="ts-doctrine-cta">
+                <a href="project-02.html" class="ts-doctrine-cta-btn">Read the Full Doctrine &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         TRADITIONAL STEWARDSHIP — NEUTRAL GROUND
+    ============================== -->
+    <section class="section ts-neutral-section" id="neutral-ground">
+        <div class="container">
+            <div class="ts-neutral-label">Neutral Ground</div>
+            <div class="ts-neutral-grid">
+                <div class="ts-neutral-body">
+                    <p>Mercury's Concept of Neutral Ground is a platform where sustainability and technology converge. We see sustainability growth and adoption, as a product of leadership. Most tangible change starts from the top. Our goal is to influence the influencers and leaders; who will take on the mantle of scaling up sustainability awareness, across a variety of parameters, sectors, organisations and nation states.</p>
+                    <p>The fiscal/economic positivity alone makes this a worthwhile proposition. We see conclaves and forums as starting points to incept, develop, monitor, and review on a quarterly/yearly basis, the progress of sustainable efforts and infrastructure, along with creating a platform for new ideas to be incubated. <em>'If you build it, they will come.'</em></p>
+                </div>
+                <div class="ts-neutral-right">
+                    <div class="ts-downstream-eq">
+                        <span class="ts-downstream-term">Downstream Thinking</span>
+                        <span class="ts-downstream-eq-sign">=</span>
+                        <span class="ts-downstream-term">Upstream Possibilities</span>
+                    </div>
+                    <p class="ts-neutral-closer">We equip leaders to envisage real change from the top with both the desire and capability to do so; Along with the openness to take feedback and input from the bottom, in the pursuit of a functioning feedback loop. And when possible &mdash; allowing leadership, mid-line beauracracy/management, and consumers/citizens to find the mid path towards progress.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         TRADITIONAL STEWARDSHIP — CONSUMER CURVE
+    ============================== -->
+    <section class="section ts-consumer-section" id="consumer-curve">
+        <div class="container">
+            <!-- Sketch: Consumer demand curve above text -->
+            <div class="ts-consumer-sketch-wrap">
+                <svg viewBox="0 -12 580 192" fill="none" class="ts-consumer-sketch" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="30" y1="155" x2="560" y2="155" stroke="rgba(0,0,0,0.12)" stroke-width="1.2"/>
+                    <line x1="30" y1="20" x2="30" y2="155" stroke="rgba(0,0,0,0.12)" stroke-width="1.2"/>
+                    <!-- axis labels -->
+                    <text x="280" y="175" font-family="Caveat, cursive" font-size="13" fill="rgba(0,0,0,0.35)" text-anchor="middle">time &rarr;</text>
+                    <text x="14" y="90" font-family="Caveat, cursive" font-size="13" fill="rgba(0,0,0,0.35)" text-anchor="middle" transform="rotate(-90,14,90)">awareness</text>
+                    <!-- Consumer curve (solid teal) — ahead, rising faster -->
+                    <path class="ts-sketch-line ts-sketch-consumers" d="M 35 148 C 80 140, 130 100, 190 62 C 250 28, 320 18, 400 14 C 460 11, 510 12, 555 11" stroke="#367589" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    <!-- Organisation curve (dashed muted) — lagging -->
+                    <path class="ts-sketch-line ts-sketch-corps" d="M 35 152 C 100 148, 180 138, 270 115 C 360 90, 450 65, 555 52" stroke="#6b7687" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round" fill="none"/>
+                    <!-- Gap annotation -->
+                    <line x1="340" y1="17" x2="340" y2="105" stroke="#C0504D" stroke-width="1.2" stroke-dasharray="4 3"/>
+                    <text x="345" y="58" font-family="Caveat, cursive" font-size="14" fill="#C0504D">the gap</text>
+                    <path d="M 343 60 C 360 68 358 76 350 84" stroke="#C0504D" stroke-width="1.2" fill="none" marker-end="none"/>
+                    <!-- Labels -->
+                    <text x="395" y="7" font-family="Caveat, cursive" font-size="15" fill="#367589" font-weight="600">Consumer/Citizens</text>
+                    <text x="455" y="78" font-family="Caveat, cursive" font-size="15" fill="#6b7687">organisations</text>
+                    <!-- small circle at gap -->
+                    <circle cx="340" cy="105" r="4" fill="none" stroke="#C0504D" stroke-width="1.5"/>
+                    <circle cx="340" cy="17" r="4" fill="none" stroke="#367589" stroke-width="1.5"/>
+                </svg>
+            </div>
+
+            <div class="ts-consumer-text">
+                    <p>Conventionally organisations lead the way for consumers/citizens, both in terms of products, demand of products &amp; services and governance frameworks. The old adage was; If you build it, they will come. They create products or services, generate demand or need for said products and services; and then fulfil the product and services requirements, while managing demand perception &mdash; i.e. cars, consumer durables, wearable tech, hospitality etc..</p>
+                    <p>However there are times (and these times are increasingly so) - like in the example of Pirate Bay and other software streaming services of the time that led to the servicing of consumer demand for online music. Downstream, that led to Spotify as a company harnessing a demand for structured legal entity. Torrentz similarly pointed to the demand for shared user-accessible online video content, with Netflix, Prime and Hotstar harnessing existing pent-up demand into legally available offerings.</p>
+                    <p>At the time, both genres had long term pushback from movie and music executives, who didn't understand how seemingly free music could be monetised, through ads in terms of YouTube/free Spotify or paid subscription; and in terms of Netflix/Prime or Spotify premium. The consumer demand for unstructured, non-incorporated services, led the way to transform these multibillion-dollar industries. It started with young aware consumers and citizens, who demanded the changes and the services. So too with Sustainability&hellip; corporations and most political organisations are behind the Customer/Consumer Curve. But they must take it seriously because&hellip; <span class="ts-consumer-emphasis">citizens/voters and consumers have already arrived.</span><span class="ts-consumer-followup">The seemingly obvious but unexpected result in Hungary in April 2026, has upended what political pundits, conventional media outlets and conventional thinking politicians thought was possible or impossible. And so conversely, even though citizens/voters/consumers have already arrived conventional thinking governments, media and organisations continue to place themselves way behind the curve in these hyper adaptive changing times.</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         TRADITIONAL STEWARDSHIP — GREEN RINSING
+    ============================== -->
+    <section class="section ts-green-rinsing-section" id="green-rinsing">
+        <div class="container">
+            <div class="ts-gr-header">
+                <h2 class="section-title ts-gr-title">Re-generative Green Rinsing</h2>
+                <p class="ts-gr-sub">(because green-washing destroys the fibre &amp; the fabric)</p>
+            </div>
+            <div class="ts-gr-body-grid">
+                <div class="ts-gr-card ts-gr-card--problem">
+                    <div class="ts-gr-card-label">The Problem</div>
+                    <h4 class="ts-gr-card-title">Greenwashing hollows out the core.</h4>
+                    <p>When organisations approach sustainability through 'performance' rather than 'practice', they sever the connection between stated values and actual outcomes. This erodes internal culture, misleads stakeholders, alienate consumer/citizens and corrodes long-term credibility - destroying the very fabric that sustainability is meant to weave.</p>
+                </div>
+                <div class="ts-gr-card ts-gr-card--approach">
+                    <div class="ts-gr-card-label">The Mercury Approach</div>
+                    <h4 class="ts-gr-card-title">Regenerative over performative.</h4>
+                    <p>Re-generative Green Rinsing is the practice of replacing surface-level environmental signalling with deep-rooted, systemic sustainability. It rebuilds the fabric and the fibre - restoring integrity to each strand of organisational practice, so that the whole fabric holds under pressure.</p>
+                </div>
+                <div class="ts-gr-card ts-gr-card--outcome">
+                    <div class="ts-gr-card-label">The Outcome</div>
+                    <h4 class="ts-gr-card-title">Durable, verifiable, lived.</h4>
+                    <p>Organisations that rinse rather than wash, emerge with practices that are measurable, and increases in stakeholder trust and self-sustenance. Sustainability becomes not a label applied to the outside, but a quality woven through every thread of strategy, operations, and culture.</p>
+                </div>
+            </div>
+            <div class="ts-gr-cta-wrap">
+                <a href="green-rinsing-execution.html" class="ts-gr-cta-btn">Initiatives @ Work &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-cursor-nav">
+        <div class="container">
+            <div class="page-cursor-grid">
+                <a href="perception-crisis.html" class="page-cursor-link page-cursor-link--prev">
+                    <span class="page-cursor-meta">&larr; Back to</span>
+                    <span class="page-cursor-title">Crisis Management</span>
+                </a>
+                <a href="index.html#philosophy" class="page-cursor-link page-cursor-link--next">
+                    <span class="page-cursor-meta">Next &rarr;</span>
+                    <span class="page-cursor-title">Core Principles</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-wordmark">Mercury<span>SPC</span></div>
+                    <p>Mercury Strategy &amp; Planning Council</p>
+                    <div class="footer-initiative">
+                        <img src="FWC_LOGO2020.png" alt="FWC Initiative Logo" class="fwc-logo">
+                        <div class="footer-initiative-copy">
+                            <span class="footer-tagline">An FWC Initiative</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:netto@fwc360.com">netto@fwc360.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Phone</span>
+                        <span>+31 687 392 568</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Hours</span>
+                        <span>Mon - Fri: 09:00 - 18:00 CET</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Locations</span>
+                        <span>Eindhoven (NL) | Mumbai (IN)</span>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html#philosophy">Cornerstone</a>
+                    <a href="what-we-do.html">What We Do</a>
+                    <a href="traditional-stewardship.html">Traditional Stewardship</a>
+                    <a href="team.html">Team</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mercury SPC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script-v2.js"></script>
+</body>
+</html>
