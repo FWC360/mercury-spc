@@ -309,6 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .nav-cta {
                 margin-top: 0.5rem;
                 text-align: center;
+                color: white !important;
             }
         }
     `;
