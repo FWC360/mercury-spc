@@ -8,10 +8,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
 
+    function closeMenu() {
+        navLinks.classList.remove('active');
+        navToggle.classList.remove('active');
+    }
+
     if (navToggle) {
-        navToggle.addEventListener('click', () => {
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             navLinks.classList.toggle('active');
             navToggle.classList.toggle('active');
+        });
+
+        // Close when clicking outside the menu
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') &&
+                !navLinks.contains(e.target) &&
+                !navToggle.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMenu();
         });
     }
 
@@ -28,8 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.scrollTo({ top, behavior: 'smooth' });
 
                 if (navLinks && navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    navToggle.classList.remove('active');
+                    closeMenu();
                 }
             }
         });
@@ -284,6 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .nav-links a {
                 padding: 0.75rem 0;
                 border-bottom: 1px solid #f0f0f0;
+                color: #2c2c30 !important;
             }
 
             .nav-cta {
@@ -293,6 +313,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
     document.head.appendChild(style);
+
+    // === Team page: sync Ryan ↔ Netto bio cards + add horizontal row class ===
+    document.querySelectorAll('.tt-details').forEach(det => {
+        det.addEventListener('toggle', () => {
+            const row = det.closest('.tt-row');
+            if (row) row.classList.toggle('tt-row--bio-open', !!row.querySelector('.tt-details[open]'));
+        });
+    });
+
+    const detRyan  = document.getElementById('details-ryan');
+    const detNetto = document.getElementById('details-netto');
+    if (detRyan && detNetto) {
+        let syncing = false;
+        detRyan.addEventListener('toggle', () => {
+            if (syncing) return;
+            syncing = true;
+            detNetto.open = detRyan.open;
+            syncing = false;
+        });
+        detNetto.addEventListener('toggle', () => {
+            if (syncing) return;
+            syncing = true;
+            detRyan.open = detNetto.open;
+            syncing = false;
+        });
+    }
 
     console.log('Mercury SPC — Home 2 Redesign Loaded');
 

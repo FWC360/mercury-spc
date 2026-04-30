@@ -83,6 +83,113 @@
             color: rgba(255,255,255,0.45);
             line-height: 1.4;
         }
+
+        .tt-card--bio {
+            width: 260px;
+        }
+
+        /* Hide summary label text once open; keep the − icon */
+        .tt-details summary .tt-summary-text {
+            transition: opacity 0.15s;
+        }
+        .tt-details[open] summary .tt-summary-text {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Expand row horizontally when any bio is open */
+        .tt-row--bio-open {
+            max-width: 860px;
+            gap: 1.5rem;
+        }
+        .tt-row--bio-open .tt-card--bio {
+            flex: 1 1 0;
+            width: auto;
+            max-width: 420px;
+        }
+        .tt-tier--1 .tt-row--bio-open .tt-card--bio {
+            max-width: 580px;
+        }
+        .tt-details-copy {
+            column-count: 1;
+        }
+        .tt-row--bio-open .tt-details-copy {
+            column-count: 2;
+            column-gap: 1.4rem;
+        }
+        .tt-row--bio-open .tt-details-copy p {
+            break-inside: avoid;
+        }
+        @media (max-width: 1024px) {
+            .tt-row--bio-open .tt-card--bio  { max-width: 100%; }
+            .tt-row--bio-open .tt-details-copy { column-count: 1; }
+        }
+
+        .tt-preview {
+            margin: 0.85rem 0 0;
+            color: rgba(255,255,255,0.68);
+            font-size: 0.82rem;
+            line-height: 1.65;
+            text-align: left;
+        }
+
+        .tt-details {
+            width: 100%;
+            margin-top: 1rem;
+            padding-top: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .tt-details summary {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            cursor: pointer;
+            color: var(--teal-light);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .tt-details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .tt-details summary::after {
+            content: '+';
+            font-size: 1rem;
+            line-height: 1;
+            color: rgba(255,255,255,0.7);
+            transition: transform 0.2s ease;
+        }
+
+        .tt-details[open] summary::after {
+            content: '\2212';
+        }
+
+        .tt-details-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 0.95rem;
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        .tt-details-copy p {
+            margin: 0;
+            color: rgba(255,255,255,0.72);
+            font-size: 0.82rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 1024px) {
+            .tt-card--bio {
+                width: 240px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -97,7 +204,7 @@
                 <a href="what-we-do.html">What We Do</a>
                 <a href="perception-crisis.html">Crisis Management</a>
                 <a href="traditional-stewardship.html">Green Integration</a>
-                <a href="index.html#philosophy">Core Principles</a>
+                <a href="index.html#philosophy">The Mercury Way</a>
                 <a href="team.html">Team</a>
                 <a href="mailto:netto@fwc360.com" class="nav-cta">Partner With Us</a>
             </div>
@@ -126,13 +233,22 @@
                 <div class="tt-tier tt-tier--1">
                     <p class="tt-tier-label">Leadership</p>
                     <div class="tt-row">
-                        <div class="tt-card">
+                        <div class="tt-card tt-card--bio">
                             <div class="tt-photo">
                                 <img src="tc.jpg" alt="TC de Sousa">
                             </div>
                             <h3 class="tt-name">TC de Sousa</h3>
                             <p class="tt-role">Team Principal</p>
                             <p class="tt-edu">Bachelors &amp; PG<br>Denison Univ Granville, OH-USA</p>
+                            <p class="tt-preview">A 360-degree strategist with over two decades of experience shaping strategy and design thinking for global organisations, brands and government bodies.</p>
+                            <details class="tt-details">
+                                <summary><span class="tt-summary-text">Read Profile</span></summary>
+                                <div class="tt-details-copy">
+                                    <p>Theron Carmine De Sousa has worked across leading global organisations, brands and governmental bodies, including a pivotal project helmed by the Dept of Investment and Public Asset Management (DIPAM).</p>
+                                    <p>TC graduated from Denison University, Granville, USA, with a degree in Communications and Political Media Strategy, followed by postgraduate studies in sustainable thinking strategies. His political advisory practice focuses on swing and independent voters who are pivot points as demographics evolve.</p>
+                                    <p>TC was also instrumental in setting up the sustainable forum at India Design Week, consolidating the interface between city planners, architects and sustainable design professionals.</p>
+                                </div>
+                            </details>
                         </div>
                     </div>
                 </div>
@@ -150,21 +266,39 @@
                 <div class="tt-tier tt-tier--2">
                     <p class="tt-tier-label">Core Team</p>
                     <div class="tt-row">
-                        <div class="tt-card">
+                        <div class="tt-card tt-card--bio">
                             <div class="tt-photo">
                                 <img src="Ryan Michigan.jpg" alt="Dr Ryan Michigan">
                             </div>
                             <h3 class="tt-name">Dr Ryan Michigan</h3>
                             <p class="tt-role">Risk Analysis</p>
                             <p class="tt-edu">PhD-Columbia Univ-USA<br>MBA-IIM-Ahmedabad-IN</p>
+                            <p class="tt-preview">A strategy, risk and analytics professional with decades of experience across financial institutions, startups and fintech ecosystems in multiple regions.</p>
+                            <details class="tt-details" id="details-ryan">
+                                <summary><span class="tt-summary-text">Read Profile</span></summary>
+                                <div class="tt-details-copy">
+                                    <p>Dr Ryan Michigan holds an MBA and PhD in Management from Columbia University, New York, a secondary MBA from the Indian Institute of Management, Ahmedabad, and an undergraduate degree in Physics from St Xavier's College, Mumbai.</p>
+                                    <p>He is a strategy, risk and analytics professional with multiple decades of experience across strategy, risk, marketing and analytics. He has worked closely with startups, FinTechs and major financial institutions in India, the United States and the Asia Pacific region.</p>
+                                    <p>Ryan also focused on consumer insight and data during his time with Boston Consulting in North America. He currently consults with OnDeck Australia, a fintech focused on small business finance across the Australian region.</p>
+                                </div>
+                            </details>
                         </div>
-                        <div class="tt-card">
+                        <div class="tt-card tt-card--bio">
                             <div class="tt-photo">
                                 <img src="Ryan Netto.png" alt="Ryan Netto">
                             </div>
-                            <h3 class="tt-name">Ryan Netto</h3>
+                            <h3 class="tt-name">R. Netto</h3>
                             <p class="tt-role">Operations</p>
                             <p class="tt-edu">MSc Sustainable Entrepreneurship<br>RijksUniv Groningen-NL</p>
+                            <p class="tt-preview">An operations lead focused on simplifying execution, reducing jargon and aligning implementation across partnerships, startups and public-private frameworks.</p>
+                            <details class="tt-details" id="details-netto">
+                                <summary><span class="tt-summary-text">Read Profile</span></summary>
+                                <div class="tt-details-copy">
+                                    <p>R. Netto studied Business and Hospitality at Wittenborg University in the Netherlands and completed his postgraduate advanced master's studies at Rijks University Groningen. During his long tenure across MercurySPC and FWC, he functioned as operations lead for governmental public-private partnerships as well as large e-payment, hospitality and digital communication startups in India.</p>
+                                    <p>While in the Netherlands, he headed a setup team for a Dutch unicorn. At MercurySPC, his inputs simplify and minimise online and offline jargon and data intersection points.</p>
+                                    <p>He brings practical insight into the multiple factors that affect implementation of products and services for new-age consumers, citizens and organisations from policy-making and framework perspectives.</p>
+                                </div>
+                            </details>
                         </div>
                     </div>
                 </div>
@@ -231,7 +365,7 @@
             <div class="page-cursor-grid">
                 <a href="index.html#philosophy" class="page-cursor-link page-cursor-link--prev">
                     <span class="page-cursor-meta">&larr; Back to</span>
-                    <span class="page-cursor-title">Core Principles</span>
+                    <span class="page-cursor-title">The Mercury Way</span>
                 </a>
                 <a href="index.html" class="page-cursor-link page-cursor-link--next">
                     <span class="page-cursor-meta">Next &rarr;</span>
