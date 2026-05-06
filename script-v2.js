@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 color: #2c2c30 !important;
             }
 
-            .nav-cta {
+            .nav-links a.nav-cta {
                 margin-top: 0.5rem;
                 text-align: center;
                 color: white !important;
