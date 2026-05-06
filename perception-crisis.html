@@ -940,6 +940,180 @@
             .pcm-hero-stances { gap: 0.75rem; }
             .crisis-compass-svg { max-width: 280px; }
             .pcm-case-grid { grid-template-columns: 1fr; }
+            .pcm-reaction-chain { flex-wrap: nowrap; gap: clamp(0.3rem, 1vw, 1rem); }
+            .pcm-neg-inner { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        /* ── Reaction Chain (Section 2) ── */
+        .pcm-reaction-section {
+            background: var(--dark);
+            padding: 6rem 0;
+            overflow: hidden;
+        }
+        .pcm-reaction-inner {
+            max-width: 820px;
+        }
+        .pcm-reaction-chain {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            gap: clamp(0.5rem, 1.5vw, 1.25rem);
+            margin-bottom: 3.5rem;
+            width: 100%;
+        }
+        .pcm-chain-node {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(0.6rem, 1.5vw, 1.2rem) clamp(1rem, 2.5vw, 2rem);
+            border-radius: 100px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            opacity: 0;
+            transform: translateY(18px);
+            animation: chainFadeUp 0.55s ease forwards;
+            animation-delay: calc(var(--i) * 0.45s + 0.3s);
+            white-space: nowrap;
+        }
+        .pcm-chain-node.crisis-node {
+            background: rgba(54,117,137,0.15);
+            border-color: rgba(54,117,137,0.4);
+        }
+        .pcm-chain-node.reaction-node {
+            background: rgba(212,168,67,0.15);
+            border-color: rgba(212,168,67,0.4);
+        }
+        .pcm-chain-node span {
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 2vw, 1.8rem);
+            font-weight: 700;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: 0.03em;
+        }
+        .pcm-chain-node.crisis-node span { color: var(--teal-light); }
+        .pcm-chain-node.reaction-node span { color: var(--gold-light); }
+        .pcm-chain-arrow {
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.1) 100%);
+            position: relative;
+            opacity: 0;
+            animation: chainFadeUp 0.4s ease forwards;
+            animation-delay: calc(var(--i) * 0.45s + 0.3s);
+            margin: 0 clamp(0.5rem, 1vw, 1rem);
+            min-width: 1.5rem;
+        }
+        .pcm-chain-arrow::after {
+            content: '';
+            position: absolute;
+            right: -2px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            border-left: 6px solid rgba(255,255,255,0.4);
+        }
+        @keyframes chainFadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pcm-reaction-question {
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 600;
+            color: rgba(255,255,255,0.72);
+            margin-bottom: 1.25rem;
+            opacity: 0;
+            animation: chainFadeUp 0.5s ease forwards;
+            animation-delay: 3.5s;
+        }
+        .pcm-reaction-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .pcm-reaction-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: var(--font-display);
+            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+            font-weight: 500;
+            color: rgba(255,255,255,0.60);
+            opacity: 0;
+            animation: chainFadeUp 0.5s ease forwards;
+        }
+        .pcm-reaction-list li:nth-child(1) { animation-delay: 3.9s; }
+        .pcm-reaction-list li:nth-child(2) { animation-delay: 4.2s; }
+        .pcm-reaction-list li:nth-child(3) { animation-delay: 4.5s; }
+        .pcm-reaction-list li::before {
+            content: '·';
+            font-size: 1.5rem;
+            color: var(--teal-light);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        /* ── Negative Thinking Section ── */
+        .pcm-negthink {
+            background: #ffffff;
+            border-top: 1px solid rgba(0,0,0,0.07);
+            padding: 6rem 0;
+        }
+        .pcm-neg-inner {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 5rem;
+            align-items: start;
+        }
+        .pcm-neg-label {
+            font-family: var(--font-display);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--teal-light);
+            margin-bottom: 1rem;
+        }
+        .pcm-neg-left h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.25;
+            margin-bottom: 1rem;
+        }
+        .pcm-neg-left h2 em {
+            font-style: normal;
+            color: var(--teal);
+        }
+        .pcm-neg-left p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.85;
+        }
+        .pcm-neg-right p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.85;
+            margin-bottom: 1.25rem;
+        }
+        .pcm-neg-right p:last-child { margin-bottom: 0; }
+        .pcm-neg-cta {
+            margin-top: 2rem;
+            background: rgba(54,117,137,0.07);
+            border: 1px solid rgba(54,117,137,0.22);
+            border-left: 3px solid var(--teal-light);
+            border-radius: var(--radius-lg);
+            padding: 1.35rem 1.75rem;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -984,6 +1158,31 @@
             </p>
         </div>
     </header>
+
+    <!-- ==============================
+         SECTION 2 — REACTION CHAIN (ANIMATED)
+    ============================== -->
+    <section class="pcm-reaction-section">
+        <div class="container">
+            <div class="pcm-reaction-inner">
+                <div class="pcm-reaction-chain">
+                    <div class="pcm-chain-node crisis-node" style="--i:0"><span>Crisis</span></div>
+                    <div class="pcm-chain-arrow" style="--i:1"></div>
+                    <div class="pcm-chain-node" style="--i:2"><span>Thoughts</span></div>
+                    <div class="pcm-chain-arrow" style="--i:3"></div>
+                    <div class="pcm-chain-node" style="--i:4"><span>Emotions</span></div>
+                    <div class="pcm-chain-arrow" style="--i:5"></div>
+                    <div class="pcm-chain-node reaction-node" style="--i:6"><span>Reaction.</span></div>
+                </div>
+                <p class="pcm-reaction-question">How do you react in sudden crises of</p>
+                <ul class="pcm-reaction-list">
+                    <li>Attacks of Perception ?</li>
+                    <li>Financial Quandries ?</li>
+                    <li>Human Resource emergencies ?</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <!-- ==============================
          CRISIS COMPASS
@@ -1107,6 +1306,26 @@
     </section>
 
     <hr class="pcm-rule">
+
+    <!-- ==============================
+         NEGATIVE THINKING STRATEGY
+    ============================== -->
+    <section class="pcm-negthink">
+        <div class="container">
+            <div class="pcm-neg-inner">
+                <div class="pcm-neg-left">
+                    <p class="pcm-neg-label">Strategic Prevention</p>
+                    <h2>The case for <em>Negative</em> Thinking</h2>
+                    <p>Usually optimism is considered the valuable ingredient in organisational productivity. However, critical thinking — also known as negative thinking — is the lynchpin in strategic planning that prevents plane crashes, hospital deaths, cyber attacks and human resource revolt.</p>
+                </div>
+                <div class="pcm-neg-right">
+                    <p>It is a prevention risk mitigator. In capital markets it prevents the loss of capital too. Using a capital markets example, everybody feels like a genius when they get bull markets right — but true skill is mitigating risk and capitalising in bear markets.</p>
+                    <p>This kind of strategic pessimism is not paralysis — it is preparedness. It is the discipline of asking: what could go wrong, and how do we ensure it doesn't?</p>
+                    <div class="pcm-neg-cta">So, do you have a negative thinking strategy in place?</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ==============================
          WHAT IS A CRISIS
