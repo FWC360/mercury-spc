@@ -942,37 +942,7 @@
             .pcm-case-grid { grid-template-columns: 1fr; }
             .pcm-neg-inner { grid-template-columns: 1fr; gap: 2rem; }
 
-            /* Reaction chain — vertical on mobile */
-            .pcm-reaction-chain {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0;
-                width: auto;
-            }
-            .pcm-chain-node {
-                width: 100%;
-                justify-content: flex-start;
-                padding: 0.85rem 1.4rem;
-            }
-            .pcm-chain-arrow {
-                width: 1px;
-                height: 2rem;
-                min-width: unset;
-                flex-grow: 0;
-                margin: 0 0 0 2.2rem;
-                background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.1) 100%);
-            }
-            .pcm-chain-arrow::after {
-                top: auto;
-                bottom: -6px;
-                right: auto;
-                left: 50%;
-                transform: translateX(-50%);
-                border-top: 6px solid rgba(255,255,255,0.4);
-                border-bottom: 0;
-                border-left: 4px solid transparent;
-                border-right: 4px solid transparent;
-            }
+            /* Reaction chain mobile rules moved below base styles */
         }
 
         /* ── Reaction Chain (Section 2) ── */
@@ -1086,6 +1056,40 @@
             color: var(--teal-light);
             line-height: 1;
             flex-shrink: 0;
+        }
+
+        /* ── Reaction chain — vertical on mobile (must be AFTER base styles) ── */
+        @media (max-width: 600px) {
+            .pcm-reaction-chain {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                width: auto;
+            }
+            .pcm-chain-node {
+                width: 100%;
+                justify-content: flex-start;
+                padding: 0.85rem 1.4rem;
+            }
+            .pcm-chain-arrow {
+                width: 1px !important;
+                height: 2rem !important;
+                min-width: unset !important;
+                flex-grow: 0 !important;
+                margin: 0 0 0 2.2rem !important;
+                background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.1) 100%) !important;
+            }
+            .pcm-chain-arrow::after {
+                top: auto !important;
+                bottom: -6px !important;
+                right: auto !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                border-top: 6px solid rgba(255,255,255,0.4) !important;
+                border-bottom: 0 !important;
+                border-left: 4px solid transparent !important;
+                border-right: 4px solid transparent !important;
+            }
         }
 
         /* ── Negative Thinking Section ── */
