@@ -29,8 +29,9 @@
                 <a href="what-we-do.html">Organisational (Re)thinking</a>
                 <a href="perception-crisis.html">Crisis Management</a>
                 <a href="adaptivity-training.html">Adaptivity Training</a>
-                <a href="traditional-stewardship.html">Case Study</a>
+                <a href="traditional-stewardship.html">Case Study <span class="nav-leaf">🍃</span></a>
                 <a href="team.html">Team</a>
+                <a href="refrences.html">Testimonials</a>
                 <a href="mailto:netto@fwc360.com" class="nav-cta">Partner With Us</a>
             </div>
             <button class="nav-toggle" id="navToggle">MENU</button>
@@ -42,6 +43,30 @@
     ============================== -->
     <header class="hero" id="home">
         <div class="hero-bg"></div>
+
+        <!-- Sliding reference quote card (hidden by default, slides in on auto/arrow) -->
+        <div class="hero-ref-slide-wrap" id="heroRefSlideWrap">
+            <a class="hero-ref-slide" id="heroRefSlide" href="#">
+                <blockquote class="hrs-quote" id="hrsQuote"></blockquote>
+                <div class="hrs-author">
+                    <span class="hrs-name" id="hrsName"></span>
+                    <span class="hrs-role" id="hrsRole"></span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Controls: prev · dots · next -->
+        <div class="hero-ref-controls">
+            <button class="hero-ref-arr" id="heroRefPrev" aria-label="Previous">&#8592;</button>
+            <div class="hero-ref-dots" id="heroRefDots">
+                <button class="hrd" data-idx="0" aria-label="Slide 1"></button>
+                <button class="hrd" data-idx="1" aria-label="Slide 2"></button>
+                <button class="hrd" data-idx="2" aria-label="Slide 3"></button>
+                <button class="hrd" data-idx="3" aria-label="Slide 4"></button>
+            </div>
+            <button class="hero-ref-arr" id="heroRefNext" aria-label="Next">&#8594;</button>
+        </div>
+
         <!-- Planet image rising from bottom, title centered inside the arc -->
         <div class="hero-globe-wrap">
             <div class="hero-content">
@@ -112,6 +137,12 @@
                 <span class="eli-desc">The people behind Mercury SPC.</span>
                 <span class="eli-arrow">↗</span>
             </a>
+            <a href="refrences.html" class="explore-link-item">
+                <span class="eli-num">06</span>
+                <span class="eli-name">Refrences</span>
+                <span class="eli-desc">Testimonials and recommendation notes.</span>
+                <span class="eli-arrow">↗</span>
+            </a>
             <a href="mailto:netto@fwc360.com" class="explore-link-item explore-link-item--dark">
                 <span class="eli-num">↗</span>
                 <span class="eli-name">Partner With Us</span>
@@ -156,8 +187,9 @@
                     <a href="#what-we-do">Organisational (Re)thinking</a>
                     <a href="perception-crisis.html">Crisis Management</a>
                 <a href="adaptivity-training.html">Adaptivity Training</a>
-                    <a href="traditional-stewardship.html">Case Study</a>
+                    <a href="traditional-stewardship.html">Green Integration</a>
                     <a href="team.html">Team</a>
+                    <a href="refrences.html">Testimonials</a>
                 </div>
             </div>
             <div class="footer-bottom">

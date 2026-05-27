@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#f6f6f3"/>
+  <rect x="60" y="40" width="1480" height="820" rx="18" fill="#fff" stroke="#d4d4cb"/>
+  <text x="100" y="130" fill="#1d1d1d" font-family="Times New Roman, serif" font-size="50" font-weight="700">Ammirati Puris Lintas</text>
+  <text x="100" y="240" fill="#222" font-family="Times New Roman, serif" font-size="31">&quot;Thank god Theron happened to be in India. Indian commercials at last</text>
+  <text x="100" y="287" fill="#222" font-family="Times New Roman, serif" font-size="31">have an international voice. Theron is a complete professional who’s</text>
+  <text x="100" y="334" fill="#222" font-family="Times New Roman, serif" font-size="31">had no formal training. His voice over has lifted many commercials done</text>
+  <text x="100" y="381" fill="#222" font-family="Times New Roman, serif" font-size="31">by us at Lintas. The man (almost) has an intuitive sense of advertising...&quot;</text>
+  <line x1="100" y1="510" x2="1460" y2="510" stroke="#e6e6de"/>
+  <text x="100" y="590" fill="#1d1d1d" font-family="Times New Roman, serif" font-size="38" font-weight="700">R. Balakrishnan</text>
+  <text x="100" y="640" fill="#333" font-family="Times New Roman, serif" font-size="30">Creative Director</text>
+  <text x="100" y="686" fill="#333" font-family="Times New Roman, serif" font-size="30">Ammirati Puris Lintas</text>
+  <text x="100" y="790" fill="#707069" font-family="Inter, Arial, sans-serif" font-size="22">Testimonial image generated locally from provided text.</text>
+</svg>

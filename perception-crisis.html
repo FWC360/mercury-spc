@@ -117,6 +117,35 @@
             margin: 0;
         }
 
+        /* ── Interstitial Quote ── */
+        .pcm-interstitial-quote {
+            background: #070B10;
+            padding: 4rem 0;
+        }
+        .pcm-pull-quote {
+            max-width: 780px;
+            margin: 0 auto;
+            font-family: Georgia, serif;
+            font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+            font-style: italic;
+            line-height: 1.75;
+            color: rgba(200, 215, 228, 0.82);
+            text-align: center;
+            border: none;
+            padding: 0;
+            position: relative;
+        }
+        .pcm-pull-quote::before {
+            content: '\201C';
+            display: block;
+            font-size: 4rem;
+            line-height: 0.6;
+            color: var(--teal);
+            opacity: 0.45;
+            margin-bottom: 1rem;
+            font-style: normal;
+        }
+
         /* ── Framework Section ── */
         .pcm-framework {
             background: var(--gray-bg);
@@ -1164,8 +1193,9 @@
                 <a href="what-we-do.html">Organisational (Re)thinking</a>
                 <a href="perception-crisis.html">Crisis Management</a>
                 <a href="adaptivity-training.html">Adaptivity Training</a>
-                <a href="traditional-stewardship.html">Case Study</a>
+                <a href="traditional-stewardship.html">Green Integration</a>
                 <a href="team.html">Team</a>
+                <a href="refrences.html">Testimonials</a>
                 <a href="mailto:netto@fwc360.com" class="nav-cta">Partner With Us</a>
             </div>
             <button class="nav-toggle" id="navToggle">MENU</button>
@@ -1188,7 +1218,7 @@
                 <span class="pcm-stance-pill defend">When to Defend</span>
                 <span class="pcm-stance-pill deflect">When to Deflect</span>
             </div>
-            <p class="pcm-hero-intro">
+            <p class="pcm-hero-intro" style="display:none">
                 Crisis management is a process designed to prevent or to lessen the damage a crisis can inflict on an organisation - or the person helming the organisation. While conventional public relations plays a role in tactically dealing with the symptoms of the moment, it is often a tactical stop-gap at best.
             </p>
         </div>
@@ -1299,6 +1329,17 @@
                     </svg>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         INTERSTITIAL QUOTE
+    ============================== -->
+    <section class="pcm-interstitial-quote">
+        <div class="container">
+            <blockquote class="pcm-pull-quote">
+                Crisis management is a process designed to prevent or to lessen the damage a crisis can inflict on an organisation &mdash; or the person helming the organisation. While conventional public relations plays a role in tactically dealing with the symptoms of the moment, it is often a tactical stop-gap at best.
+            </blockquote>
         </div>
     </section>
 
@@ -1716,8 +1757,9 @@
                     <a href="index.html#what-we-do">Organisational (Re)thinking</a>
                     <a href="perception-crisis.html">Crisis Management</a>
                     <a href="adaptivity-training.html">Adaptivity Training</a>
-                    <a href="traditional-stewardship.html">Case Study</a>
+                    <a href="traditional-stewardship.html">Green Integration</a>
                     <a href="team.html">Team</a>
+                    <a href="refrences.html">Testimonials</a>
                 </div>
             </div>
             <div class="footer-bottom">

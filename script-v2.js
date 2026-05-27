@@ -1,4 +1,4 @@
-// ============================================
+﻿// ============================================
 // Mercury SPC — Home 2 Redesign Interactions
 // ============================================
 
@@ -342,5 +342,158 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     console.log('Mercury SPC — Home 2 Redesign Loaded');
+
+    // === Hero Reference Slide Carousel ===
+    const card      = document.getElementById('heroRefSlide');
+    const heroPrev  = document.getElementById('heroRefPrev');
+    const heroNext  = document.getElementById('heroRefNext');
+    const heroDots  = document.querySelectorAll('#heroRefDots .hrd');
+
+        if (card) {
+        const slides = [
+            {
+                href:  'refrences.html',
+                quote: '\u201cThe quality of strategic thinking available to an organization should not be a function of its size. The hard questions \u2014 about how leaders think, how organizations adapt, and how strategy connects to the reality of execution \u2014 deserve focused, unencumbered attention. Mercury SPC appears to be asking those questions seriously. In my observation, that is uncommon. And it is worth noting.\u201d',
+                name:  'Mukhraj Saberwal',
+                role:  'Assoc. Director, Global Technology & Advisory \u00b7 Accenture, Princeton NJ'
+            },
+            {
+                href:  'refrences.html#ref-jessie',
+                quote: '\u201cMr. de Sousa\u2019s facilitation style combines depth of thought, clarity of articulation, and strong audience engagement. He demonstrated a rare ability to challenge existing mindsets while creating a shared sense of direction and ownership among participants.\u201d',
+                name:  'Jessie Kaur',
+                role:  'Fmr. CEO, Work with Dignity Foundation @ GPTW \u00b7 GMI Great Managers Institute'
+            },
+            {
+                href:  'refrences.html#ref-shawn',
+                quote: '\u201cWhat truly distinguishes TC is his profound understanding of the fashion business and the evolving consumer psyche. He possesses an intuitive grasp of what moves the modern consumer, allowing him to craft narratives that are not only aesthetically compelling but also strategically sound.\u201d',
+                name:  'S Chandy',
+                role:  'Group CMO \u00b7 Paragon Industries / Paragon Footwear'
+            },
+            {
+                href:  'refrences.html#ref-balakrishnan',
+                quote: '\u201cIn his short stint, he has exhibited more understanding of the consumer he\u2019s talking to, than most professionals I\u2019ve met.\u201d',
+                name:  'R. \u2018Balki\u2019 Balakrishnan',
+                role:  'Fmr. Chairman & NCD \u00b7 Lowe Lintas IPG'
+            }
+        ];
+        const total = slides.length;
+        let current = -1;   // no slide shown yet
+        let visible = false;
+        let busy    = false;
+        let autoTimer;
+
+        // Fill card DOM with a slide's data
+        function loadSlide(idx) {
+            const s = slides[idx];
+            card.href = s.href;
+            document.getElementById('hrsQuote').textContent = s.quote;
+            document.getElementById('hrsName').textContent  = s.name;
+            document.getElementById('hrsRole').textContent  = s.role;
+            heroDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+            current = idx;
+        }
+
+        // Instantly reposition card off-screen (no animation)
+        function resetPosition(fromRight) {
+            card.style.transition = 'none';
+            card.style.transform  = fromRight ? 'translateX(115%)' : 'translateX(-115%)';
+            card.style.opacity    = '0';
+            card.classList.remove('hrs-in', 'hrs-out-left', 'hrs-out-right');
+        }
+
+        // Slide the card onto screen
+        function slideIn(idx, fromRight) {
+            loadSlide(idx);
+            resetPosition(fromRight);
+            // Fade out the hero title when first slide appears
+            const heroEl = document.getElementById('home');
+            if (heroEl) heroEl.classList.add('hero--ref-active');
+            // Force reflow so the instant reposition registers before we re-enable transition
+            void card.offsetWidth;
+            card.style.transition = '';
+            card.style.transform  = '';
+            card.style.opacity    = '';
+            card.classList.add('hrs-in');
+            visible = true;
+            setTimeout(() => { busy = false; }, 700);
+        }
+
+        // Slide the visible card off-screen, then call callback
+        function slideOut(toLeft, callback) {
+            busy = true;
+            // Fade the hero title back in as the card exits
+            const heroEl = document.getElementById('home');
+            if (heroEl) heroEl.classList.remove('hero--ref-active');
+            card.classList.remove('hrs-in');
+            card.style.transition = '';
+            card.style.transform  = '';
+            card.style.opacity    = '';
+            card.classList.add(toLeft ? 'hrs-out-left' : 'hrs-out-right');
+            visible = false;
+            setTimeout(callback, 520);
+        }
+
+        // Advance to a specific index, with direction
+        function goTo(idx, forward) {
+            if (busy) return;
+            busy = true;
+            if (visible) {
+                slideOut(forward, () => slideIn(idx, forward));
+            } else {
+                slideIn(idx, forward);
+            }
+        }
+
+        function startAuto() {
+            stopAuto();
+            autoTimer = setInterval(() => {
+                goTo((current + 1 + total) % total, true);
+            }, 5500);
+        }
+        function stopAuto() { clearInterval(autoTimer); }
+
+        // Arrow buttons
+        heroPrev && heroPrev.addEventListener('click', () => {
+            stopAuto();
+            goTo((current - 1 + total) % total, false);
+            startAuto();
+        });
+        heroNext && heroNext.addEventListener('click', () => {
+            stopAuto();
+            goTo((current + 1) % total, true);
+            startAuto();
+        });
+
+        // Dot buttons
+        heroDots.forEach(d => {
+            d.addEventListener('click', () => {
+                const idx = Number(d.dataset.idx);
+                if (idx === current) return;
+                stopAuto();
+                goTo(idx, idx > current);
+                startAuto();
+            });
+        });
+
+        // Keyboard arrows — only while hero is in view
+        document.addEventListener('keydown', e => {
+            const hero = document.getElementById('home');
+            if (!hero) return;
+            const r = hero.getBoundingClientRect();
+            if (r.bottom < 0 || r.top > window.innerHeight) return;
+            if (e.key === 'ArrowLeft')  { stopAuto(); goTo((current - 1 + total) % total, false); startAuto(); }
+            if (e.key === 'ArrowRight') { stopAuto(); goTo((current + 1) % total, true);           startAuto(); }
+        });
+
+        // Pause auto-advance while hovering the card
+        card.addEventListener('mouseenter', stopAuto);
+        card.addEventListener('mouseleave', startAuto);
+
+        // First slide appears after a 2.5s delay, then auto-advances every 5.5s
+        setTimeout(() => {
+            goTo(0, true);
+            startAuto();
+        }, 2500);
+    }
 
 });

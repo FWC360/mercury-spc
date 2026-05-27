@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials | MercurySPC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-v2.css?v=3">
+    <style>
+        /* ── Page hero ── */
+        .ref-hero {
+            padding: 9rem 0 5rem;
+            background: #070B10;
+            position: relative;
+            overflow: hidden;
+        }
+        .ref-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 80% at 10% 50%, rgba(54,117,137,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 90% 20%, rgba(54,117,137,0.10) 0%, transparent 55%);
+            pointer-events: none;
+        }
+        .ref-hero-inner {
+            position: relative;
+            z-index: 1;
+        }
+        .ref-hero-kicker {
+            display: inline-block;
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--teal-light);
+            margin-bottom: 1.2rem;
+        }
+        .ref-hero h1 {
+            font-size: clamp(2.4rem, 5vw, 4.2rem);
+            color: #E8ECF0;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.4rem;
+        }
+        .ref-hero h1 span {
+            color: var(--teal-light);
+        }
+        .ref-hero p {
+            max-width: 640px;
+            color: rgba(200,210,220,0.65);
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+
+        /* ── Section ── */
+        .ref-section {
+            padding: 5rem 0 7rem;
+            background: #F7F8FA;
+        }
+
+        /* ── Testimonial card ── */
+        .ref-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        .ref-card {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid rgba(54,117,137,0.12);
+            box-shadow: 0 8px 32px rgba(44,44,48,0.07);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .ref-card:hover {
+            box-shadow: 0 16px 48px rgba(54,117,137,0.13);
+            transform: translateY(-3px);
+        }
+
+        /* teal accent bar on left */
+        .ref-card-inner {
+            display: grid;
+            grid-template-columns: 6px 1fr;
+        }
+        .ref-card-bar {
+            background: linear-gradient(180deg, var(--teal-light), var(--teal-dark));
+            border-radius: 20px 0 0 20px;
+        }
+        .ref-card-body {
+            padding: 2.8rem 3rem 2.4rem 2.6rem;
+        }
+
+        /* quote mark */
+        .ref-quote-mark {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 5rem;
+            line-height: 1;
+            color: var(--teal-light);
+            opacity: 0.35;
+            margin-bottom: -0.8rem;
+            display: block;
+            user-select: none;
+        }
+
+        /* context tag above quote — e.g. company / event */
+        .ref-context {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--teal);
+            background: rgba(54,117,137,0.08);
+            border: 1px solid rgba(54,117,137,0.15);
+            padding: 0.3rem 0.85rem;
+            border-radius: 100px;
+            margin-bottom: 1.4rem;
+        }
+
+        /* body text */
+        .ref-text {
+            color: #2C2C30;
+            font-size: 1rem;
+            line-height: 1.82;
+        }
+        .ref-text p {
+            margin-bottom: 1.1rem;
+        }
+        .ref-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* numbered list inside testimonial */
+        .ref-list-points {
+            list-style: none;
+            margin: 0.2rem 0 1.1rem;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .ref-list-points li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            color: #2C2C30;
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+        .ref-list-points li .ref-point-num {
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--teal);
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0.18rem;
+        }
+
+        /* byline */
+        .ref-byline {
+            margin-top: 2rem;
+            padding-top: 1.4rem;
+            border-top: 1px solid rgba(54,117,137,0.12);
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .ref-byline-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--teal-light), var(--teal-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .ref-byline-info {
+            flex: 1;
+        }
+        .ref-byline-name {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2C2C30;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+        .ref-byline-role {
+            font-size: 0.88rem;
+            color: #52606d;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .ref-hero {
+                padding: 8rem 0 3.5rem;
+            }
+            .ref-card-body {
+                padding: 2rem 1.6rem 1.8rem 1.4rem;
+            }
+            .ref-quote-mark {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">Mercury<span class="logo-spc">SPC</span></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="what-we-do.html">Organisational (Re)thinking</a>
+                <a href="perception-crisis.html">Crisis Management</a>
+                <a href="adaptivity-training.html">Adaptivity Training</a>
+                <a href="traditional-stewardship.html">Green Integration</a>
+                <a href="team.html">Team</a>
+                <a href="refrences.html" class="nav-active">Testimonials</a>
+                <a href="mailto:netto@fwc360.com" class="nav-cta">Partner With Us</a>
+            </div>
+            <button class="nav-toggle" id="navToggle">MENU</button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="ref-hero">
+        <div class="container ref-hero-inner">
+            <h1>Testimonials</h1>
+        </div>
+    </header>
+
+    <!-- Testimonials -->
+    <section class="ref-section">
+        <div class="container">
+            <div class="ref-list">
+
+                <!-- Reference 1 — Jessie / GPTW -->
+                <article class="ref-card" id="ref-jessie">
+                    <div class="ref-card-inner">
+                        <div class="ref-card-bar"></div>
+                        <div class="ref-card-body">
+                            <div class="ref-text">
+                                <p>It is my pleasure to recommend Mr. Theron Carmins de Sousa, Consulting Director – Business Strategy at Ferry Wharf Consulting LLP, based on his outstanding contribution as the lead facilitator for a Great Place to Work®️ India leadership session conducted in December 2021.</p>
+                                <p>Mr. de Sousa was invited to design and deliver a workshop focused on transformational thinking, strategic alignment, and execution readiness. He independently anchored the entire engagement, bringing together strategy, design thinking, and practical execution frameworks in a manner that strongly resonated with senior leaders and cross‑functional teams.</p>
+                                <p>What clearly distinguished Mr. de Sousa was his ability to reframe complex organizational challenges into structured, actionable thinking models. The session helped participants move beyond conventional approaches and instead focus on:</p>
+                                <ol class="ref-list-points">
+                                    <li><span class="ref-point-num">1</span><span>Strategic problem framing and decision‑making</span></li>
+                                    <li><span class="ref-point-num">2</span><span>Design‑thinking principles applied to real organizational contexts</span></li>
+                                    <li><span class="ref-point-num">3</span><span>Leadership alignment around intent, priorities, and execution dynamics</span></li>
+                                    <li><span class="ref-point-num">4</span><span>Enabling teams to adapt and adopt new ways of working, thinking, and collaborating</span></li>
+                                </ol>
+                                <p>His approach emphasized how organizations think and execute, not just what they aim to achieve. Through a well‑sequenced flow, he guided participants from strategic intent to practical alignment, helping teams understand how to translate vision into coherent action across functions.</p>
+                                <p>Mr. de Sousa's facilitation style combines depth of thought, clarity of articulation, and strong audience engagement. He demonstrated a rare ability to challenge existing mindsets while creating a shared sense of direction and ownership among participants. The workshop was widely regarded as impactful, relevant, and immediately applicable.</p>
+                                <p>From a Great Place to Work®️ perspective, the session strongly reinforced the importance of aligned leadership, adaptive thinking, and disciplined execution as critical enablers of sustainable organizational performance and culture.</p>
+                                <p>I found Mr. de Sousa to be a highly credible strategist, an effective design‑thinking practitioner, and a compelling facilitator. I recommend him without reservation for leadership strategy engagements, transformation programs, and executive forums where alignment, clarity, and execution focus are essential.</p>
+                            </div>
+                            <div class="ref-byline">
+                                <div class="ref-byline-avatar">J</div>
+                                <div class="ref-byline-info">
+                                    <span class="ref-byline-name">Jessie</span>
+                                    <span class="ref-byline-role">CEO, Work with Dignity Foundation @ GPTW<br>Senior Advisory Board, Great Management Institute (GMI)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Reference 2 — Shawn Chandy / Raymond Ltd -->
+                <article class="ref-card" id="ref-shawn">
+                    <div class="ref-card-inner">
+                        <div class="ref-card-bar"></div>
+                        <div class="ref-card-body">
+                            <div class="ref-text">
+                                <p>During my tenure at Raymond Ltd, I had the privilege of working closely with TC de Sousa on several high-stakes projects. TC is a rare professional who seamlessly bridges the gap between high-level creative vision and grounded strategic execution, particularly within the complex Fashion industry.</p>
+                                <p>His contributions to the business consistently went beyond the traditional scope of an agency partner. TC doesn't just "deliver a brief"; he immerses himself in the brand's challenges as a true stakeholder. His ability to forecast trends and translate them into commercially viable creative strategies was instrumental in how we approached our product categories.</p>
+                                <p>What truly distinguishes TC is his profound understanding of the fashion business and the evolving consumer psyche. He possesses an intuitive grasp of what moves the modern consumer, allowing him to craft narratives that are not only aesthetically compelling but also strategically sound. He is a proactive collaborator who anticipates needs before they arise, making him an invaluable asset to any brand looking to elevate its market presence.</p>
+                                <p>On a personal level, he acted as a steady guide on many occasions, offering the kind of nuanced career advice that is rare to find in a fast-paced corporate environment. He has a unique ability to see the potential in others and provide the strategic direction needed to navigate a complex world. His support and guidance have been pivotal in my personal career journey, and for that, I am incredibly grateful.</p>
+                                <p>I highly recommend TC for any leadership or advisory role where strategic depth, a passion for innovation, and genuine mentorship are required.</p>
+                            </div>
+                            <div class="ref-byline">
+                                <div class="ref-byline-avatar">SC</div>
+                                <div class="ref-byline-info">
+                                    <span class="ref-byline-name">Shawn Chandy</span>
+                                    <span class="ref-byline-role">Raymond Ltd</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Reference 3 — R. Balakrishnan / Ammirati Puris Lintas -->
+                <article class="ref-card" id="ref-balakrishnan">
+                    <div class="ref-card-inner">
+                        <div class="ref-card-bar"></div>
+                        <div class="ref-card-body">
+                            <div class="ref-text">
+                                <p>Thank god Theron happened to be in India. Indian commercials at last have an international voice. Theron is a complete professional who's had no formal training. His voice over has lifted many commercials done by us at Lintas. The man (almost) has an intuitive sense of advertising. In his short stint, he has exhibited more understanding of the consumer he's talking to, than most professionals I've met. When and if he decides which of his talents he should focus on, I think he'll have a splendid future.</p>
+                            </div>
+                            <div class="ref-byline">
+                                <div class="ref-byline-avatar">RB</div>
+                                <div class="ref-byline-info">
+                                    <span class="ref-byline-name">R. Balakrishnan</span>
+                                    <span class="ref-byline-role">Creative Director, Ammirati Puris Lintas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-wordmark">Mercury<span>SPC</span></div>
+                    <p>Mercury Strategy &amp; Planning Council</p>
+                    <div class="footer-initiative">
+                        <img src="FWC_LOGO2020.png" alt="FWC Initiative Logo" class="fwc-logo">
+                        <div class="footer-initiative-copy">
+                            <span class="footer-tagline">An FWC Initiative</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:netto@fwc360.com">netto@fwc360.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Phone</span>
+                        <span>+31 687 392 568</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Hours</span>
+                        <span>Mon - Fri: 09:00 - 18:00 CET</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="contact-label">Locations</span>
+                        <span>Eindhoven (NL) | Mumbai (IN)</span>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="what-we-do.html">Organisational (Re)thinking</a>
+                    <a href="perception-crisis.html">Crisis Management</a>
+                    <a href="adaptivity-training.html">Adaptivity Training</a>
+                    <a href="traditional-stewardship.html">Green Integration</a>
+                    <a href="team.html">Team</a>
+                    <a href="refrences.html">Testimonials</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Mercury SPC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script-v2.js"></script>
+</body>
+</html>

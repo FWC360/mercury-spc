@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#f4f4f1"/>
+  <rect x="40" y="40" width="1520" height="820" rx="24" fill="#ffffff" stroke="#d6d6cf"/>
+  <text x="90" y="130" fill="#1d2933" font-family="Georgia, serif" font-size="42" font-weight="700">Recommendation Note</text>
+  <text x="90" y="190" fill="#334855" font-family="Georgia, serif" font-size="30">Great Place to Work India leadership session (Dec 2021)</text>
+  <text x="90" y="270" fill="#111" font-family="Georgia, serif" font-size="28">&quot;It is my pleasure to recommend Mr. Theron Carmins de Sousa...&quot;</text>
+  <text x="90" y="320" fill="#111" font-family="Georgia, serif" font-size="28">&quot;...transformational thinking, strategic alignment, and execution readiness.&quot;</text>
+  <text x="90" y="370" fill="#111" font-family="Georgia, serif" font-size="28">&quot;...impactful, relevant, and immediately applicable.&quot;</text>
+  <text x="90" y="420" fill="#111" font-family="Georgia, serif" font-size="28">&quot;I recommend him without reservation...&quot;</text>
+  <line x1="90" y1="500" x2="1510" y2="500" stroke="#e5e5df"/>
+  <text x="90" y="580" fill="#1d2933" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Jessie</text>
+  <text x="90" y="630" fill="#435763" font-family="Inter, Arial, sans-serif" font-size="26">I was CEO of Work with Dignity Foundation@ GPTW</text>
+  <text x="90" y="670" fill="#435763" font-family="Inter, Arial, sans-serif" font-size="26">And Senior Advisory Board : great management institute GMI</text>
+  <text x="90" y="790" fill="#6a7a85" font-family="Inter, Arial, sans-serif" font-size="22">Testimonial image generated locally from provided text.</text>
+</svg>
