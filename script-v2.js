@@ -355,17 +355,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 href:  'refrences.html',
                 quote: '\u201cThe quality of strategic thinking available to an organization should not be a function of its size. The hard questions \u2014 about how leaders think, how organizations adapt, and how strategy connects to the reality of execution \u2014 deserve focused, unencumbered attention. Mercury SPC appears to be asking those questions seriously. In my observation, that is uncommon. And it is worth noting.\u201d',
                 name:  'Mukhraj Saberwal',
-                role:  'Assoc. Director, Global Technology & Advisory \u00b7 Accenture, Princeton NJ'
+                role:  'Accenture \u00b7 Global Technology & Advisory Industry, Assoc. Director \u00b7 Princeton, NJ USA'
             },
             {
                 href:  'refrences.html#ref-jessie',
                 quote: '\u201cMr. de Sousa\u2019s facilitation style combines depth of thought, clarity of articulation, and strong audience engagement. He demonstrated a rare ability to challenge existing mindsets while creating a shared sense of direction and ownership among participants.\u201d',
                 name:  'Jessie Kaur',
-                role:  'Fmr. CEO, Work with Dignity Foundation @ GPTW \u00b7 GMI Great Managers Institute'
+                role:  'Fmr. CEO, Work with Dignity Foundation @ GPTW (Great Places To Work) \u00b7 GMI Great Managers Institute'
             },
             {
                 href:  'refrences.html#ref-shawn',
-                quote: '\u201cWhat truly distinguishes TC is his profound understanding of the fashion business and the evolving consumer psyche. He possesses an intuitive grasp of what moves the modern consumer, allowing him to craft narratives that are not only aesthetically compelling but also strategically sound.\u201d',
+                quote: '\u201cWhat truly distinguishes TC is his profound understanding of the business and the evolving consumer psyche. He possesses an intuitive grasp of what moves the modern consumer, allowing him to craft narratives that are not only aesthetically compelling but also strategically sound.\u201d',
                 name:  'S Chandy',
                 role:  'Group CMO \u00b7 Paragon Industries / Paragon Footwear'
             },
@@ -385,7 +385,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Fill card DOM with a slide's data
         function loadSlide(idx) {
             const s = slides[idx];
-            card.href = s.href;
             document.getElementById('hrsQuote').textContent = s.quote;
             document.getElementById('hrsName').textContent  = s.name;
             document.getElementById('hrsRole').textContent  = s.role;

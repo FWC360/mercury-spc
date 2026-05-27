@@ -2797,6 +2797,15 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* iPad portrait: anchor card from bottom so it grows upward, never over halo */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .hero-ref-slide-wrap {
+        top: auto;
+        bottom: 34%;
+        transform: translateX(-50%);
+    }
+}
+
 /* iPad Portrait (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
     .nav-links {
@@ -2974,10 +2983,10 @@ h1, h2, h3, h4, h5, h6 {
         z-index: 10;
     }
 
-    /* On mobile, position slide card where the title lives */
+    /* On mobile portrait: anchor card from bottom so it grows upward, never over halo */
     .hero-ref-slide-wrap {
-        bottom: auto;
-        top: 35%;
+        top: auto;
+        bottom: 34%;
         transform: translateX(-50%);
     }
 
