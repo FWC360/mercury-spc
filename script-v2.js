@@ -383,7 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             ,
             {
-                href: 'refrences.html#ref-sahil',
+                href: 'refrences.html',
                 quote: '\u201cBe prepared to be (softly) told like it is. If that is what is required in the moment, his energy and experience will be rendered indispensable.\u201d',
                 name: 'Sahil Sadarangani',
                 role: 'Sahil International \u00b7 Exclusive India Partner to Harman International - JBL, AKG, harman/kardon 1999-2018'
