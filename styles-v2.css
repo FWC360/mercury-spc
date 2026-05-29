@@ -3259,20 +3259,38 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Desktop: place excerpt below the hero (prevents upward shift over planet)
-   Banner/excerpt will sit just beneath the hero on large screens. */
-@media (min-width: 1025px) {
-    .hero {
-        overflow: visible; /* allow excerpt to sit below hero */
-    }
+   Ensure overflow visible and position the excerpt slightly below the hero.
+   Also adjust arrow offsets on small screens so they remain on-screen. */
+@media (min-width: 1024px) {
+    .hero { overflow: visible !important; }
     .hero-ref-slide-wrap {
-        top: 100%;
+        position: absolute;
+        top: calc(100% + 1.5rem);
         bottom: auto;
         left: 50%;
         transform: translateX(-50%);
         width: min(780px, 88vw);
-        margin-top: 1.5rem;
+        z-index: 20;
+        margin-top: 0;
     }
 }
+
+/* On narrower screens ensure arrows are within viewport */
+@media (max-width: 768px) {
+    #heroRefPrev { left: 8px; }
+    #heroRefNext { right: 8px; }
+    .hero-ref-arr { width: 44px; height: 44px; font-size: 1.15rem; }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+    /* tablet: bring arrows a bit closer */
+    #heroRefPrev { left: -24px; }
+    #heroRefNext { right: -24px; }
+}
+
+/* Guarantee arrows are visible above other elements */
+.hero-ref-arr { z-index: 60; background: rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.06); }
+.hero-ref-arr:hover { background: rgba(0,0,0,0.16); }
 
 /* Mobile menu injection handled by JS */
 
