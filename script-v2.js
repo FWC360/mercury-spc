@@ -448,11 +448,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Slide the visible card off-screen, then call callback
-        function slideOut(toLeft, callback) {
+        function slideOut(toLeft, nextIsBanner, callback) {
             busy = true;
-            // Fade the hero title back in as the card exits
+            // Fade the hero title back in as the card exits ONLY if the next slide is the banner
             const heroEl = document.getElementById('home');
-            if (heroEl) heroEl.classList.remove('hero--ref-active');
+            if (heroEl && nextIsBanner) heroEl.classList.remove('hero--ref-active');
             card.classList.remove('hrs-in');
             card.style.transition = '';
             card.style.transform  = '';
@@ -467,7 +467,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (busy) return;
             busy = true;
             if (visible) {
-                slideOut(forward, () => slideIn(idx, forward));
+                const nextIsBanner = slides[idx] && slides[idx].banner;
+                slideOut(forward, nextIsBanner, () => slideIn(idx, forward));
             } else {
                 slideIn(idx, forward);
             }
