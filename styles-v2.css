@@ -3262,17 +3262,31 @@ h1, h2, h3, h4, h5, h6 {
    Ensure overflow visible and position the excerpt slightly below the hero.
    Also adjust arrow offsets on small screens so they remain on-screen. */
 @media (min-width: 1024px) {
+    /* Keep excerpt inside hero but offset so it doesn't overlap the planet halo */
     .hero { overflow: visible !important; }
     .hero-ref-slide-wrap {
         position: absolute;
-        top: calc(100% + 1.5rem);
-        bottom: auto;
+        /* Sit inside the hero, slightly above the bottom edge */
+        bottom: 12%;
         left: 50%;
         transform: translateX(-50%);
-        width: min(780px, 88vw);
-        z-index: 20;
-        margin-top: 0;
+        width: min(720px, 86vw);
+        z-index: 40;
+        pointer-events: auto;
     }
+
+    /* Constrain long excerpts so they don't overflow the hero edges */
+    .hero-ref-slide {
+        max-height: 34vh;
+        overflow: auto;
+        padding: 1.25rem 1.6rem;
+        pointer-events: auto;
+        background: linear-gradient(180deg, rgba(7,11,16,0.0), rgba(7,11,16,0.02));
+        backdrop-filter: none;
+    }
+
+    /* Improve quote legibility inside the dark hero */
+    .hrs-quote { color: rgba(230,238,246,0.95); }
 }
 
 /* On narrower screens ensure arrows are within viewport */
