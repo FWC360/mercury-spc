@@ -2394,7 +2394,8 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateX(-50%);
     width: min(580px, 88vw);
     z-index: 20;
-    pointer-events: none; /* wrapper is invisible — only active card intercepts */
+    pointer-events: auto; /* allow controls inside wrapper to receive events */
+    overflow: visible;
 }
 
 /* The card itself — starts off-screen right */
@@ -2520,12 +2521,16 @@ h1, h2, h3, h4, h5, h6 {
     top: 50%;
     transform: translateY(-50%);
     z-index: 30;
+    pointer-events: auto;
 }
 .hero-ref-arr:hover { transform: translateY(-50%) scale(1.05); color: #fff; }
 
 /* position prev/next to the left/right of the quote card */
-#heroRefPrev { left: -48px; }
-#heroRefNext { right: -48px; }
+#heroRefPrev { left: -56px; }
+#heroRefNext { right: -56px; }
+
+/* Hide bottom dots/controls wrapper if present */
+.hero-ref-controls { display: none !important; }
 
 .hero-ref-dots {
     display: flex;

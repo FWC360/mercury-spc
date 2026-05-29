@@ -476,11 +476,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function startAuto() {
             stopAuto();
-            autoTimer = setInterval(() => {
-                goTo((current + 1 + total) % total, true);
-            }, 10000); // 10s rotation per UI request
+            // Advance immediately to the next slide, then schedule the following advance
+            const next = (current + 1 + total) % total;
+            goTo(next, true);
+            const delay = (slides[next] && slides[next].banner) ? 4000 : 10000;
+            autoTimer = setTimeout(startAuto, delay);
         }
-        function stopAuto() { clearInterval(autoTimer); }
+        function stopAuto() { clearTimeout(autoTimer); }
 
         // Arrow buttons
         heroPrev && heroPrev.addEventListener('click', () => {
