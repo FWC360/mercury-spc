@@ -352,6 +352,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (card) {
         const slides = [
             {
+                banner: true,
+                title: 'Mercury',
+                titleAccent: 'SPC',
+                subtitle: 'Mercury - Strategy & Planning Council'
+            },
+            {
                 href:  'refrences.html',
                 quote: '\u201cThe quality of strategic thinking available to an organization should not be a function of its size. The hard questions \u2014 about how leaders think, how organizations adapt, and how strategy connects to the reality of execution \u2014 deserve focused, unencumbered attention. Mercury SPC appears to be asking those questions seriously. In my observation, that is uncommon. And it is worth noting.\u201d',
                 name:  'Mukhraj Saberwal',
@@ -385,9 +391,20 @@ document.addEventListener('DOMContentLoaded', () => {
         // Fill card DOM with a slide's data
         function loadSlide(idx) {
             const s = slides[idx];
-            document.getElementById('hrsQuote').textContent = s.quote;
-            document.getElementById('hrsName').textContent  = s.name;
-            document.getElementById('hrsRole').textContent  = s.role;
+            const heroEl = document.getElementById('home');
+            if (s && s.banner) {
+                document.getElementById('hrsQuote').textContent = '';
+                document.getElementById('hrsName').textContent  = '';
+                document.getElementById('hrsRole').textContent  = '';
+                // ensure hero content is visible and card hidden
+                if (heroEl) heroEl.classList.remove('hero--ref-active');
+                resetPosition(true);
+                visible = false;
+            } else {
+                document.getElementById('hrsQuote').textContent = s.quote || '';
+                document.getElementById('hrsName').textContent  = s.name || '';
+                document.getElementById('hrsRole').textContent  = s.role || '';
+            }
             heroDots.forEach((d, i) => d.classList.toggle('active', i === idx));
             current = idx;
         }
@@ -402,6 +419,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Slide the card onto screen
         function slideIn(idx, fromRight) {
+            const s = slides[idx];
+            // If this is the banner slide, show hero content and do not animate the card
+            if (s && s.banner) {
+                loadSlide(idx);
+                // ensure hero title visible
+                const heroEl = document.getElementById('home');
+                if (heroEl) heroEl.classList.remove('hero--ref-active');
+                // keep card reset/offscreen
+                resetPosition(true);
+                visible = false;
+                setTimeout(() => { busy = false; }, 200);
+                return;
+            }
             loadSlide(idx);
             resetPosition(fromRight);
             // Fade out the hero title when first slide appears
@@ -447,7 +477,7 @@ document.addEventListener('DOMContentLoaded', () => {
             stopAuto();
             autoTimer = setInterval(() => {
                 goTo((current + 1 + total) % total, true);
-            }, 5500);
+            }, 10000); // 10s rotation per UI request
         }
         function stopAuto() { clearInterval(autoTimer); }
 

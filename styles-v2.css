@@ -2404,10 +2404,10 @@ h1, h2, h3, h4, h5, h6 {
     gap: 0.75rem;
     padding: 1.5rem 1.8rem 1.4rem 1.6rem;
     border-radius: 16px;
-    border: 1px solid rgba(54,117,137,0.25);
-    background: rgba(6,10,15,0.88);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    border: none;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     text-decoration: none;
     color: inherit;
     pointer-events: none;
@@ -2483,15 +2483,16 @@ h1, h2, h3, h4, h5, h6 {
     color: #E8ECF0;
 }
 .hrs-role {
-    font-size: 0.76rem;
-    color: rgba(200,210,220,0.5);
+    font-size: 0.88rem;
+    color: #FFFFFF;
     line-height: 1.4;
 }
 
 /* Controls row: ← dots → — always visible, subtle */
+/* keep dots centered beneath but overlay arrow buttons beside the quote */
 .hero-ref-controls {
     position: absolute;
-    bottom: 2rem;
+    bottom: 1.8rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 20;
@@ -2501,26 +2502,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-ref-arr {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    border: 1px solid rgba(54,117,137,0.35);
-    background: rgba(54,117,137,0.08);
-    color: rgba(74,143,163,0.7);
-    font-size: 0.95rem;
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    transition: color 0.15s ease, transform 0.15s ease;
     padding: 0;
     line-height: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 30;
 }
-.hero-ref-arr:hover {
-    background: var(--teal);
-    border-color: var(--teal);
-    color: #fff;
-}
+.hero-ref-arr:hover { transform: translateY(-50%) scale(1.05); color: #fff; }
+
+/* position prev/next to the left/right of the quote card */
+#heroRefPrev { left: -48px; }
+#heroRefNext { right: -48px; }
 
 .hero-ref-dots {
     display: flex;
