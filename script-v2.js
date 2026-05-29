@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 href:  'refrences.html',
                 quote: '\u201cThe quality of strategic thinking available to an organization should not be a function of its size. The hard questions \u2014 about how leaders think, how organizations adapt, and how strategy connects to the reality of execution \u2014 deserve focused, unencumbered attention. Mercury SPC appears to be asking those questions seriously. In my observation, that is uncommon. And it is worth noting.\u201d',
                 name:  'Mukhraj Saberwal',
-                role:  'Accenture \u00b7 Global Technology & Advisory Industry, Assoc. Director \u00b7 Princeton, NJ USA'
+                role:  'Accenture \u00b7 Global Technology & Advisory Industry, Assoc. Director \u00b7 Princeton, NJ, USA'
             },
             {
                 href:  'refrences.html#ref-jessie',
@@ -479,7 +479,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Advance immediately to the next slide, then schedule the following advance
             const next = (current + 1 + total) % total;
             goTo(next, true);
-            const delay = (slides[next] && slides[next].banner) ? 4000 : 10000;
+            // Use the current slide's type to decide how long it should remain visible.
+            // Banner slides display for 4s, others for 10s.
+            const delay = (slides[current] && slides[current].banner) ? 4000 : 10000;
             autoTimer = setTimeout(startAuto, delay);
         }
         function stopAuto() { clearTimeout(autoTimer); }

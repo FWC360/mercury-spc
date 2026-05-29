@@ -3258,6 +3258,22 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Desktop: place excerpt below the hero (prevents upward shift over planet)
+   Banner/excerpt will sit just beneath the hero on large screens. */
+@media (min-width: 1025px) {
+    .hero {
+        overflow: visible; /* allow excerpt to sit below hero */
+    }
+    .hero-ref-slide-wrap {
+        top: 100%;
+        bottom: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(780px, 88vw);
+        margin-top: 1.5rem;
+    }
+}
+
 /* Mobile menu injection handled by JS */
 
 /* ============================
