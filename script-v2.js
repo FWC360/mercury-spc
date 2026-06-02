@@ -356,13 +356,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 subtitle: 'Mercury - Strategy & Planning Council'
             },
             {
-                href:  'refrences.html',
+                href:  'refrences.html#ref-mukhraj',
                 quote: '\u201cThe hard questions - about how leaders think, how organizations adapt, and how strategy connects to the reality of execution - deserve focused, unencumbered attention. Mercury SPC is asking those questions seriously. In my observation, that is most uncommon.\u201d',
                 name:  'Mukhraj Saberwal',
                 role:  'Accenture \u00b7 Global Technology & Advisory Industry, Assoc. Director \u00b7 Princeton, NJ, USA'
             },
             {
-                href:  'refrences.html',
+                href:  'refrences.html#ref-shawn',
                 quote: '\u201cWhat truly distinguishes TC is his profound understanding of the business and the evolving consumer psyche. He possesses an intuitive grasp of what moves the modern consumer, allowing him to craft narratives that are not only aesthetically compelling but also strategically sound.\u201d',
                 name:  'S Chandy',
                 role:  'Group CMO \u00b7 Paragon Industries / Paragon Footwear'
@@ -372,12 +372,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 quote: '\u201cIn his short stint, he has exhibited more understanding of the consumer he\u2019s talking to, than most professionals I\u2019ve met.\u201d',
                 name:  'R. \u2018Balki\u2019 Balakrishnan',
                 role:  'Fmr. Chairman & NCD \u00b7 Lowe Lintas IPG'
-            },
             {
-                href:  'refrences.html#ref-jessie',
-                quote: '\u201cMr. de Sousa\u2019s facilitation style combines depth of thought, clarity of articulation, and strong audience engagement. He demonstrated a rare ability to challenge existing mindsets while creating a shared sense of direction and ownership among participants.\u201d',
-                name:  'Jessie Kaur',
-                role:  'Fmr. CEO, Work with Dignity Foundation @ GPTW (Great Places To Work) \u00b7 GMI Great Managers Institute'
+                href: 'refrences.html#ref-ashish',
+                quote: '\u201cOrganizations that have TC by their side would have an individual with relentless energy; in-depth knowledge about subject matter that would be of relevance to them; and a deep understanding of people & what drives them. \u2026 A truly 360 degree individual and strategist.\u201d',
+                name: 'Ashish Khetan',
+                role: 'Fmr. COO, Kotak Wealth Management \u00b7 Founder, Serenity Wealth'
+            },
             },
             {
                 href: 'refrences.html#ref-ashish',
@@ -414,6 +414,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('hrsQuote').textContent = s.quote || '';
                 document.getElementById('hrsName').textContent  = s.name || '';
                 document.getElementById('hrsRole').textContent  = s.role || '';
+                // expose link state on the card for click behavior and cursor
+                card.dataset.href = s && s.href ? s.href : '';
+                card.style.cursor = (s && s.href && s.href.includes('#ref-')) ? 'pointer' : '';
             }
             heroDots.forEach((d, i) => d.classList.toggle('active', i === idx));
             current = idx;
@@ -532,6 +535,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // Pause auto-advance while hovering the card
         card.addEventListener('mouseenter', stopAuto);
         card.addEventListener('mouseleave', startAuto);
+
+        // Click the card to open the full testimonial when a fragment anchor is provided
+        card.addEventListener('click', (e) => {
+            if (!visible) return;
+            const s = slides[current];
+            if (s && s.href && s.href.includes('#ref-')) {
+                window.location.href = s.href;
+            }
+        });
 
         // First slide appears after a 2.5s delay, then auto-advances every 5.5s
         setTimeout(() => {
