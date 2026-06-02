@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // === Mobile Navigation Toggle ===
+             quote: '\u201cOrganizations that have TC by their side would have an individual with relentless energy, indepth knowledge about subject matter that would be of relevance to them, and a deep understanding of people & what drives them. \u2026 A truly 360 degree individual and strategist.\u201d',
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
 
@@ -383,7 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             {
                 href: 'refrences.html#ref-ashish',
-                quote: '\u201cA truly 360 degree individual and strategist.\u201d',
+                quote: '\u201cOrganizations that have TC by their side would have an individual with relentless energy, indepth knowledge about subject matter that would be of relevance to them. and a deep understanding of people &amp; what drives them 3 A truly 360 degree individual and strategist.\u201d',
                 name: 'Ashish Khetan',
                 role: 'Fmr. COO, Kotak Wealth Management \u00b7 Founder, Serenity Wealth'
             },
