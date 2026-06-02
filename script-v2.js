@@ -364,13 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 role:  'Accenture \u00b7 Global Technology & Advisory Industry, Assoc. Director \u00b7 Princeton, NJ, USA'
             },
             {
-                href:  'refrences.html#ref-jessie',
-                quote: '\u201cMr. de Sousa\u2019s facilitation style combines depth of thought, clarity of articulation, and strong audience engagement. He demonstrated a rare ability to challenge existing mindsets while creating a shared sense of direction and ownership among participants.\u201d',
-                name:  'Jessie Kaur',
-                role:  'Fmr. CEO, Work with Dignity Foundation @ GPTW (Great Places To Work) \u00b7 GMI Great Managers Institute'
-            },
-            {
-                href:  'refrences.html#ref-shawn',
+                href:  'refrences.html',
                 quote: '\u201cWhat truly distinguishes TC is his profound understanding of the business and the evolving consumer psyche. He possesses an intuitive grasp of what moves the modern consumer, allowing him to craft narratives that are not only aesthetically compelling but also strategically sound.\u201d',
                 name:  'S Chandy',
                 role:  'Group CMO \u00b7 Paragon Industries / Paragon Footwear'
@@ -380,8 +374,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 quote: '\u201cIn his short stint, he has exhibited more understanding of the consumer he\u2019s talking to, than most professionals I\u2019ve met.\u201d',
                 name:  'R. \u2018Balki\u2019 Balakrishnan',
                 role:  'Fmr. Chairman & NCD \u00b7 Lowe Lintas IPG'
-            }
-            ,
+            },
+            {
+                href:  'refrences.html#ref-jessie',
+                quote: '\u201cMr. de Sousa\u2019s facilitation style combines depth of thought, clarity of articulation, and strong audience engagement. He demonstrated a rare ability to challenge existing mindsets while creating a shared sense of direction and ownership among participants.\u201d',
+                name:  'Jessie Kaur',
+                role:  'Fmr. CEO, Work with Dignity Foundation @ GPTW (Great Places To Work) \u00b7 GMI Great Managers Institute'
+            },
+            {
+                href: 'refrences.html#ref-ashish',
+                quote: '\u201cA truly 360 degree individual and strategist.\u201d',
+                name: 'Ashish Khetan',
+                role: 'Fmr. COO, Kotak Wealth Management \u00b7 Founder, Serenity Wealth'
+            },
             {
                 href: 'refrences.html',
                 quote: '\u201cBe prepared to be (softly) told like it is. If that is what is required in the moment, his energy and experience will be rendered indispensable.\u201d',
