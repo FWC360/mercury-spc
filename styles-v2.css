@@ -2996,7 +2996,7 @@ h1, h2, h3, h4, h5, h6 {
     /* On mobile portrait: anchor card from bottom so it grows upward, never over halo */
     .hero-ref-slide-wrap {
         top: auto;
-        bottom: 10%;
+        bottom: 34%;
         transform: translateX(-50%);
     }
 
